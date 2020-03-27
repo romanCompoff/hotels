@@ -1,0 +1,1 @@
+allHotels in the views

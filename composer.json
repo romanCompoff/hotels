@@ -1,0 +1,19 @@
+{
+    "name": "dva/hotels",
+    "description": "site about hotels",
+    "authors": [
+        {
+            "name": "Vit",
+            "email": "s1te@bk.ru"
+        }
+    ],
+    "require": {},
+	"autoload": {
+        "psr-4": {
+            "Dva\\Hotels\\": "app"
+        },
+		"classmap": [
+    "app/"
+		]
+    }
+}
