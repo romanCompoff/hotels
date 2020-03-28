@@ -45,6 +45,12 @@ class BaseController
 		$mPost = new baseModel(DB::getConnect());
 		$this->myNotice = $this->build($this->myPath('allHotels'), []);	
 	}
+		
+		// public function lastInsertIdController()
+		// {
+			// $mPost = new BaseModel(DB::getConnect());
+			// return $mPost-lastInsertIdFunction();
+		// }
 
 
 }
