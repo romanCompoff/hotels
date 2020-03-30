@@ -11,6 +11,7 @@ class BaseModel
 		public function __construct($db)
 	{
 		$this->db = $db;
+		$this->db->exec('SET NAMES UTF8');
 	}
 		function getHotels()
 	{
