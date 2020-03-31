@@ -40,18 +40,11 @@ class BaseController
 	{
 		$this->myNotice = $this->build(__DIR__ . '/../views/myNotice.html.php', ['myNotice' => $myNotice]);	
 	}
-			public function allHotels()
+			public function allHotels($page)
 	{
 		$mPost = new BaseModel(DB::getConnect());
 		$hotelList = $mPost->getHotels();
-		$this->content = $this->build($this->myPath('allHotels'), ['content' => $hotelList]);	
+		$this->content = $this->build($this->myPath($page), ['content' => $hotelList]);	
 	}
-		
-		// public function lastInsertIdController()
-		// {
-			// $mPost = new BaseModel(DB::getConnect());
-			// return $mPost-lastInsertIdFunction();
-		// }
-
 
 }

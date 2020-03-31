@@ -6,7 +6,15 @@ use Dva\Hotels\model\BaseModel;
 include 'vendor/autoload.php';
 
 $controller = new AdminController;
-// $lastInsertIdValue = $controller->lastInsertIdController();
+
+if($_GET['admin'] == 'list'){
+	if($_GET['del']){
+	$controller->delHotel($_GET['del']);
+	
+	}
+	$list = $controller->allHotels('adminlist');
+}
+else{
 if(!empty($_POST)){
 
 	foreach($_FILES as $f){
@@ -15,7 +23,6 @@ if(!empty($_POST)){
 		$_POST[$l] = $f['name'];
 	}
 	$res = $controller->addHotels($_POST);	
-	var_dump($lastInsertIdValue);
 	$dir = 'myFiles/' . $res . '/';
 		if(!is_dir($dir)) {
 			 mkdir($dir, 0777, true);
@@ -30,8 +37,9 @@ if(!empty($_POST)){
 	move_uploaded_file($_FILES['link3']['tmp_name'], $destiation_dir3 ); 
 	move_uploaded_file($_FILES['link4']['tmp_name'], $destiation_dir4 ); 
 
+
 }
 $main = $controller->outputForm();
-$controller->render();
+}
 
-// $a = new BaseModel;
+$controller->render();

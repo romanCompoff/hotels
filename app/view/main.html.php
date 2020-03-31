@@ -47,7 +47,7 @@
         
       </li>
     </ul>
-    <a class="nav-link" href="tel:87011702598"><span style = "color:green; font-size: 150%">8 (701) 170-25-98</span></a>
+    <a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%">8(800) 201-84-80</span></a>
 	<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
 
   </div>
@@ -354,7 +354,8 @@ return res;
 <p> Санаторий </p>
 </div>
 <div class = "col-6 col-sm-6 col-md-4 col-lg-4">
-<p> Санаторий </p>
+<p>  <a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%">8(800) 201-84-80</span></a> </p>
+<p>  eduvkrim82@mail.ru</p>
 </div>
 </div>
 </div>

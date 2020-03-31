@@ -1,15 +1,19 @@
 <?=$lastNumber['error']?>
 <form enctype="multipart/form-data" method = "post" action = "/admin.php" class = "myAdmin">
-
+<div class = "text-left">
 <div>
-<h1>Добавление на отеля</h1>
+<h1>Добавление нового отеля</h1>
 </div>
 
-<input id = "heading" onChange = "showMess('heading' , '400', 'строка')" type="text" name = "heading">Заголовок <br>
+<input id = "heading" onChange = "showMess('heading' , '400', 'строка')" type="text" name = "heading">Заголовок<br>
 	<div id = "headingDiv">
 	</div>
 
-<input id = "preview" onChange = "showMess('preview' , '100', 'строка')" type="text" name = "preview"> <br> 
+<input id = "price" onChange = "showMess('price' , '120', 'строка')" type="text" name = "price">Цена<br> 
+	<div id = "priceDiv">
+	</div>
+
+<textarea id = "preview" onChange = "showMess('preview' , '900', 'строка')" type="text" name = "preview">Описание</textarea><br> 
 	<div id = "previewDiv">
 	</div>
 	
@@ -38,6 +42,7 @@
 <div id = "mySubmit">
 Отправить
 </div>
+</div>
 </form>
 <p>
 </p>
@@ -48,6 +53,7 @@
 var buttonAccess = new Map([
 ['heading' , 'false'],
 ['preview' , 'false'],
+['price' , 'false'],
 ['link1' , 'false'],
 ['link2' , 'false'],
 ['link3' , 'false'],
@@ -66,17 +72,17 @@ function showMess(element, howLong, t)
 		if(t == typeq){
 			buttonAccess.set(element,'false');
 			document.getElementById('mySubmit').innerHTML='Отправить';
-			document.getElementById(element + 'Div').innerHTML = '<span class = "error">Неверная инфа. Введите тип "' + t + '" </span>';	
+			document.getElementById(element + 'Div').innerHTML = '<span class = "alert alert-danger m-3">Неверная инфа. Введите тип "' + t + '" </span>';	
 		}
 			else{ 
 				if(per.length > howLong){
 					buttonAccess.set(element,'false');
 					document.getElementById('mySubmit').innerHTML='Отправить';
-					document.getElementById(element + 'Div').innerHTML = '<span class = "error">Максимум '+ howLong +' символов</span>';
+					document.getElementById(element + 'Div').innerHTML = '<span class = "alert alert-danger">Максимум '+ howLong +' символов</span>';
 					}
 						else {
 							buttonAccess.set(element,'true');
-							document.getElementById(element + 'Div').innerHTML = '<span class = "access">Все впорядке</span>';
+							document.getElementById(element + 'Div').innerHTML = '<span class = "alert alert-success" style = "margin: 10px 10px">Все впорядке</span>';
 						if(buttonAccess.get('heading') == 'true' && buttonAccess.get('preview') == 'true' && buttonAccess.get('link1') == 'true' && buttonAccess.get('link2') == 'true' && buttonAccess.get('link3') == 'true' && buttonAccess.get('link4') == 'true' && buttonAccess.get('link1') == 'true')
 						{document.getElementById('mySubmit').innerHTML='<button type = "submit" name = "Отправить">Отправить</button>';
 					}
@@ -88,5 +94,17 @@ function showMess(element, howLong, t)
 				
 }
 </script>
-<?php 
-// var_dump($lastNumber);
+<style>
+form input{
+	margin:12px;
+}
+form textarea{
+	margin:12px;
+	width:80%;;
+	height: auto;	
+}
+form{
+	margin-left:10%;
+}
+
+</style>
