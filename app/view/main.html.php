@@ -48,7 +48,7 @@
       </li>
     </ul>
     <a class="nav-link" href="tel:87011702598"><span style = "color:green; font-size: 150%">8 (701) 170-25-98</span></a>
-	<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Забронировать</button>
+	<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
 
   </div>
 </nav>
@@ -60,7 +60,7 @@
 		<div id = "haze">
 		<h1>Санаторий «Aрай Deluxe Thermal Resort»</h1>
 		<p>Мы принимаем заказы на бронь с разных городов Казахстана, с Ташкента и некоторых городов России.</p>
-		<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Забронировать</button>
+		<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
 
 		</div>
 		</div>
@@ -148,7 +148,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Забронировать</h5>
+        <h5 class="modal-title" id="exampleModalLabel">ЗАКАЗАТЬ</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -172,8 +172,8 @@
         
       </div>
       <div class="modal-footer">
-	  <button type="submit" class="btn btn-primary">Забронировать сейчас</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+	  <button type="submit" class="btn btn-primary">ЗАКАЗАТЬ</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">ЗАКРЫТЬ</button>
         
 		</form>
 		
@@ -184,6 +184,27 @@
     </div>
   </div>
 </div>
+
+<div class = "container">
+		<div class="text-center" >
+			<h3>Также в нашем санатории имеется современный бассейн, оборудованный всем необходимым</h3>	
+			</div>
+	<div class = "row justify-content-md-center justify-content-lg-center justify-content-center no-gutters " style = "padding: 33px 0;">
+		<div class = "col-6 col-md-4 col-sm-6 col-lg-4" style = "padding-top:10px;">
+			<img src="/img/img-block/slide7.jpg" class="" alt="logo" width="90%" height="auto" >
+		</div>
+		<div class = "col-6 col-md-4 col-sm-6 col-lg-4" style = "padding-top:10px;">
+			<img src="/img/img-block/slide8.jpg" class="" alt="logo" width="90%" height="auto" >
+		</div>
+		<div class = "col-6 col-md-4 col-sm-6 col-lg-4" style = "padding-top:10px;">
+			<img src="/img/img-block/slide9.jpg" class="" alt="logo" width="90%" height="auto" >
+		</div>
+	</div>
+</div>
+
+
+
+
 
 <?=$content?>
 
@@ -307,5 +328,35 @@ return res;
 </style>
 
 
+<div class = "container" style = "padding: 33px 0;">
+<div class = "text-center" style = "padding: 33px 0;">
+<p>
+Оставьте заявку на сайте, и наши менеджеры помогут подобрать номер!
+</p>
+<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
+</div>
+<div class = "row justify-content-between no-gutters">
+<div class = "col-12 col-sm-12 col-md-6 col-lg-6"> 
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2868952.2528884467!2d32.28820361308605!3d45.39499658567419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1585585090694!5m2!1sru!2sru" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>
+<div class = "col-12 col-sm-12 col-md-5 col-lg-5"> 
+<h3>Адрес:</h3>
+</div>
+</div>
+</div>
+
+<div class = "container-fluid" style = "padding:0px; background-color:gray;">
+<div class = "row">
+<div class = "col-6 col-sm-6 col-md-4 col-lg-4">
+
+</div>
+<div class = "col-6 col-sm-6 col-md-4 col-lg-4">
+<p> Санаторий </p>
+</div>
+<div class = "col-6 col-sm-6 col-md-4 col-lg-4">
+<p> Санаторий </p>
+</div>
+</div>
+</div>
   </body>
 </html>

@@ -75,6 +75,7 @@ echo sprintf('<img class = "myClass%s" src="/myFiles/%s/%s" onclick = "bigCaptur
 
 echo	'
 	</div>
+	</div>
 </div>';
 		
 	
