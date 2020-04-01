@@ -34,8 +34,7 @@ echo '
     <p class="card-text">';
 	
 	echo sprintf('<h2>%s</h2>', $hotel[1]);
-	echo '<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Забронировать ';
-	echo $hotel[1];
+	echo '<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Заказать';
 		echo'</button>';
 	echo '<hr>';
 	echo sprintf('<p>%s</p>', $hotel[2]);
@@ -44,11 +43,9 @@ echo '
 	echo '</p>
   </div>';
   
-  echo sprintf('<div class = "fullImg" style = "padding-top:10px;" id = "myClass%s" style = "background-color:gray;"><img src = "/myFiles/%s/%s"></div>', $hotel[0], $hotel[0], $hotel[3]);
+  echo sprintf('<div class = "fullImg" style = "padding-top:10px;" id = "myClass%s" style = "background-color:gray;"><img src = "/myFiles/numbers/%s/%s"></div>', $hotel[0], $hotel[0], $hotel[3]);
 echo '  <div class="card-body">
-    <p class="card-text text-center""><button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Забронировать ';
-		echo $hotel[1];
-	
+    <p class="card-text text-center""><button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Заказать';	
 	
 		echo'
 	</button>
@@ -60,13 +57,13 @@ echo '  <div class="card-body">
 		
 echo '<div class = "row justify-content-md-center justify-content-lg-center justify-content-center myClass">';
 echo '<div class = "col-3 col-md-2 col-sm-3 col-lg-2" style = "padding: 5px;">';
-echo sprintf('<img class = "myClass%s" src="/myFiles/%s/%s" onclick = "bigCapture(event); return false" alt="logo"></div>', $hotel[0], $hotel[0], $hotel[3] );
+echo sprintf('<img class = "myClass%s" src="/myFiles/numbers/%s/%s" onclick = "bigCapture(event); return false" alt="logo"></div>', $hotel[0], $hotel[0], $hotel[3] );
 echo '<div class = "col-3 col-md-2 col-sm-3 col-lg-2" style = "padding:5px;">';
-echo sprintf('<img class = "myClass%s" src="/myFiles/%s/%s" onclick = "bigCapture(event); return false" alt="logo"></div>', $hotel[0], $hotel[0], $hotel[4] );
+echo sprintf('<img class = "myClass%s" src="/myFiles/numbers/%s/%s" onclick = "bigCapture(event); return false" alt="logo"></div>', $hotel[0], $hotel[0], $hotel[4] );
 echo '<div class = "col-3 col-md-2 col-sm-3 col-lg-2" style = "padding:5px;">';
-echo sprintf('<img class = "myClass%s" src="/myFiles/%s/%s" onclick = "bigCapture(event); return false" alt="logo"></div>', $hotel[0], $hotel[0], $hotel[5] );
+echo sprintf('<img class = "myClass%s" src="/myFiles/numbers/%s/%s" onclick = "bigCapture(event); return false" alt="logo"></div>', $hotel[0], $hotel[0], $hotel[5] );
 echo '<div class = "col-3 col-md-2 col-sm-3 col-lg-2" style = "padding:5px;">';
-echo sprintf('<img class = "myClass%s" src="/myFiles/%s/%s" onclick = "bigCapture(event); return false" alt="logo"></div>', $hotel[0], $hotel[0], $hotel[6] );
+echo sprintf('<img class = "myClass%s" src="/myFiles/numbers/%s/%s" onclick = "bigCapture(event); return false" alt="logo"></div>', $hotel[0], $hotel[0], $hotel[6] );
 
 
 

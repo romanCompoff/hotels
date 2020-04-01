@@ -3,11 +3,15 @@
 <tbody>
 <?
 foreach($content as $hotel){
-$imgPath = sprintf('<img src = "/myFiles/numbers/%s/', $hotel[0]);
+$imgPath = sprintf('<img src = "/myFiles/articles/%s/', $hotel[0]);
 $imgPathEnd = '" style = "width: 33px; height: 33px;">';
 	
 	echo '<tr><td>';
 	echo $hotel[1];
+	echo '</td><td>';
+	echo $imgPath;
+	echo $hotel[2];
+	echo $imgPathEnd;
 	echo '</td><td>';
 	echo $imgPath;
 	echo $hotel[3];
@@ -21,15 +25,11 @@ $imgPathEnd = '" style = "width: 33px; height: 33px;">';
 	echo $hotel[5];
 	echo $imgPathEnd;
 	echo '</td><td>';
-	echo $imgPath;
-	echo $hotel[5];
-	echo $imgPathEnd;
-	echo '</td><td>';
-	echo '<a href = "admin.php?admin=list&del=';
+	echo '<a href = "adminArticle.php?admin=list&del=';
 	echo $hotel[0];
 	echo '">Удалить</a>';
 	echo '</td><td>';
-	echo '<a href = "admin.php?admin=list&off=';
+	echo '<a href = "adminArticle.php?admin=list&off=';
 	echo $hotel[0];
 	echo '">Состояние ';
 	echo $hotel[8];

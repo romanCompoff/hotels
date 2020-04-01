@@ -2,7 +2,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -16,58 +15,56 @@
  
     <title>Отели для вашего спокойного отдыха</title>
   </head>
-  <body>
-  <div class = "container-fluid " style = "padding-right: 0px; padding-left: 0px;">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/"><img src="/img/logo.png" class="" alt="logo" width="175" height="auto" ></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Домашняя <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#numbers">Номера</a>
-      </li>
-      <li class="nav-item">
-         <a class="nav-link" href="#adress">Адрес и контакты</a>
-      </li>
-    </ul>
-    <a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%">8(800) 201-84-80</span></a>
-	<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
-
-  </div>
-</nav>
-
+  
+<body>
+	<div class = "container-fluid " style = "padding-right: 0px; padding-left: 0px;">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="/" style = "color:green; text-style:bold;">ГОЛУБОЙ ЗАЛИВ</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Домашняя <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#numbers">Номера</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#adress">Адрес и контакты</a>
+						</li>
+					</ul>
+					<a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%">8(800) 201-84-80</span></a>
+					<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>					
+				</div>
+		</nav>
     <div class = "row" style = "margin:0px; padding:0">
 		<div class = "col-12 col-sm-12 col-md-12 col-lg-12" style = "padding:0;">
-		<div class="img-wrap">
-			<img src="/img/banner.jpg" class="img-fluid" alt="Отели на ваш выбор" style = "padding:0">
-		<div id = "haze">
-		<h1>Усадьба «Голубой залив»</h1>
-		<p>Место для тихого спокойного отдыха в уединении на территории старинного парка. Добро пожаловать в Лименскую долину!</p>
-		<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
-
-		</div>
-		</div>
+			<div class="img-wrap">
+				<img src="/img/banner.jpg" class="img-fluid" alt="Отели на ваш выбор" style = "padding:0">
+			</div>
 		</div>
 	</div>
 </div>
+
 <div class = "container" style = "padding: 70px 10px;">
     <div class = "row justify-content-md-center justify-content-center no-gutters">
-	<div class = "col-9">							
-		<div class="text-center">
-			<h1>О усадьбе</h1>	
-			<p><span style="font-size:16px">Благоприятный климат, сочетание морского и горного воздуха с целебным действием можжевеловой рощи, роскошная лесопарковая зона, украшенная цветниками, беседками и скульптурами создают условия для Вашего оздоровления и отдыха. Ваш ждет удачное сочетание старины, девственной природы, современного интерьера и качественного сервиса. </span></p>
-			<p><br></p><p><span style="font-size:16px">На территории усадьбы расположен архитектурный ансамбль, выполненный в едином стиле: Вилла «Голубой залив» – исторический дворец, отреставрированный в 2019 году, трехэтажная Вилла «Лимена», трехэтажная Вилла «Шипилов», трехэтажная Вилла «Филлибер» и пятиэтажная Вилла «Мальцев».</span><br></p>
-			
+		<div class = "col-11">							
+			<div class="text-center">
+				<h1>Усадьба «Голубой залив»</h1>
+		<p><span style="font-size:16px">Место для тихого спокойного отдыха в уединении на территории старинного парка. Добро пожаловать в Лименскую долину!</span></p>
+		</div>
+		<?=$articles?>
+
 		</div>
 	</div>
-	</div>
 </div>
+
+
+
+<!--
 <div class = "container">
 	<div class = "row justify-content-md-center justify-content-lg-center justify-content-center no-gutters">
 		<div class = "col-6 col-md-4 col-sm-6 col-lg-4" style = "padding-top:10px;">
@@ -90,14 +87,15 @@
 		</div>
 	</div>
 </div>
-
+-->
 <div class = "container" style = "padding: 100px 0;">
 	<div class = "row justify-content-md-center justify-content-lg-center justify-content-center no-gutters">
-	<div class="text-center">
-	<h2>Почему мы?</h2>
-	
-<p style="font-size:16px; padding: 33 0;">Наши преимущества перед другими отелями</p>
-</div>
+		
+		<!--
+		<div class="text-center">
+			<h2>Почему мы?</h2>
+				<p style="font-size:16px; padding: 33 0;">Наши преимущества перед другими отелями</p>
+		</div>
 <div class="card-deck">
   <div class="card">
   <div class="text-center">
@@ -129,6 +127,7 @@
     </div>
   </div>
 </div>
+-->
 	</div>
 </div>
 
@@ -173,7 +172,7 @@
     </div>
   </div>
 </div>
-
+<!--
 <div class = "container">
 		<div class="text-center">
 			<p><span style="font-size:16px">В 700 м расположен поселковый галечный оборудованный пляж с дайвинг центром. Дорога к пляжу через парк. Летом на три лучших пляжа «Симеиз», «Голубой залив» и «Кацивели» гостей ежечасно доставляет комфортабельный бесплатный трансфер. </span></p>
@@ -193,11 +192,10 @@
 		</div>
 	</div>
 </div>
-		<div class="text-center" id = "numbers" name = "numbers">
-		<h2>Гостям предлагаются комфортные номера с панорамными видами</h2>
-			</div>
-
-
+-->
+<div class = "text-center">
+<h2>Предлагаем вашему вниманию список номеров</h2>
+</div>
 <?=$content?>
 
 	  		<script>

@@ -6,6 +6,7 @@ use Dva\Hotels\model\BaseModel;
 include 'vendor/autoload.php';
 
 $controller = new BaseController;
+$mainArticles = $controller->allArticles('articles');
 $main = $controller->allHotels('allHotels');
 $controller->render();
 

@@ -7,6 +7,7 @@ use Dva\Hotels\Core\DB;
 class BaseController
 {
 	protected $title;
+	protected $articles;
 	protected $content = "Контент в контроллере";
 
 		protected function myPath($name)
@@ -21,7 +22,8 @@ class BaseController
 	echo $this->build(
 		$this->myPath('main'),
 		[
-		'content' => $this->content
+		'content' => $this->content,
+		'articles' => $this->articles
 		]
 		);
 	}
@@ -45,6 +47,13 @@ class BaseController
 		$mPost = new BaseModel(DB::getConnect());
 		$hotelList = $mPost->getHotels();
 		$this->content = $this->build($this->myPath($page), ['content' => $hotelList]);	
+	}
+			
+			public function allArticles($page)
+	{
+		$mPost = new BaseModel(DB::getConnect());
+		$articlesList = $mPost->getArticles();
+		$this->articles = $this->build($this->myPath($page), ['content' => $articlesList]);	
 	}
 
 }

@@ -30,11 +30,10 @@ $controller = new AdminController;
 
 if($_GET['admin'] == 'list'){
 	if($_GET['del']){
-	$controller->delHotel($_GET['del']);
+	$controller->delArticle($_GET['del']);
 	}
 	$list = $controller->allHotels('adminList');
 	$mainArticles = $controller->allArticles('adminArticleList');
-
 }
 else{
 if(!empty($_POST)){
@@ -44,8 +43,8 @@ if(!empty($_POST)){
 		$l = 'link' . $i;
 		$_POST[$l] = $f['name'];
 	}
-	$res = $controller->addHotels($_POST);	
-	$dir = 'myFiles/numbers/' . $res . '/';
+	$res = $controller->addArticles($_POST);	
+	$dir = 'myFiles/articles/' . $res . '/';
 		if(!is_dir($dir)) {
 			 mkdir($dir, 0777, true);
 		 }
@@ -61,7 +60,7 @@ if(!empty($_POST)){
 
 
 }
-$main = $controller->outputForm();
+$main = $controller->outputFormToArticles();
 }
 
 $controller->render();
