@@ -27,24 +27,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Домашняя <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <a class="nav-link" href="#numbers">Номера</a>
       </li>
       <li class="nav-item">
-        
+         <a class="nav-link" href="#adress">Адрес и контакты</a>
       </li>
     </ul>
     <a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%">8(800) 201-84-80</span></a>
@@ -54,12 +43,12 @@
 </nav>
 
     <div class = "row" style = "margin:0px; padding:0">
-		<div class = "col-12 col-sm-12 col-md-12 col-lg-12" style = "background-color:red; padding:0;">
+		<div class = "col-12 col-sm-12 col-md-12 col-lg-12" style = "padding:0;">
 		<div class="img-wrap">
 			<img src="/img/banner.jpg" class="img-fluid" alt="Отели на ваш выбор" style = "padding:0">
 		<div id = "haze">
-		<h1>Санаторий «Aрай Deluxe Thermal Resort»</h1>
-		<p>Мы принимаем заказы на бронь с разных городов Казахстана, с Ташкента и некоторых городов России.</p>
+		<h1>Усадьба «Голубой залив»</h1>
+		<p>Место для тихого спокойного отдыха в уединении на территории старинного парка. Добро пожаловать в Лименскую долину!</p>
 		<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
 
 		</div>
@@ -71,9 +60,9 @@
     <div class = "row justify-content-md-center justify-content-center no-gutters">
 	<div class = "col-9">							
 		<div class="text-center">
-			<h1>О санатории</h1>	
-			<p><span style="font-size:16px">Оздоровительный комплекс Aray Deluxe Thermal Resort( Арай Делюкс Термал Ресорт) расположен в ЮКО, городе Сарыагаш, минеральный курорт в 130 км от города Шымкент и в 14 км от города Ташкент. Предоставляются медицинские услуги. На территории так же расположены ресторан, кинотеатр, бары, бизнес-центр. </span></p>
-			<p><br></p><p><span style="font-size:16px">Мы принимаем заказы на бронь с разных городов Казахстана, Ташкента и некоторых городов России. Далее мы связываемся с Вами по мобильному телефону или WatsApp и оформляем все необходимые документы. Опытные менеджеры помогут подобрать вам оптимальный номер, а наши таксисты встретят Вас в аэропорту или на вокзале. Мы поможем Вам разместиться в нашем замечательном санатории.</span><br></p>
+			<h1>О усадьбе</h1>	
+			<p><span style="font-size:16px">Благоприятный климат, сочетание морского и горного воздуха с целебным действием можжевеловой рощи, роскошная лесопарковая зона, украшенная цветниками, беседками и скульптурами создают условия для Вашего оздоровления и отдыха. Ваш ждет удачное сочетание старины, девственной природы, современного интерьера и качественного сервиса. </span></p>
+			<p><br></p><p><span style="font-size:16px">На территории усадьбы расположен архитектурный ансамбль, выполненный в едином стиле: Вилла «Голубой залив» – исторический дворец, отреставрированный в 2019 году, трехэтажная Вилла «Лимена», трехэтажная Вилла «Шипилов», трехэтажная Вилла «Филлибер» и пятиэтажная Вилла «Мальцев».</span><br></p>
 			
 		</div>
 	</div>
@@ -107,7 +96,7 @@
 	<div class="text-center">
 	<h2>Почему мы?</h2>
 	
-<p style="font-size:16px; padding: 33 0;">Наши преимущества перед другими санаториями</p>
+<p style="font-size:16px; padding: 33 0;">Наши преимущества перед другими отелями</p>
 </div>
 <div class="card-deck">
   <div class="card">
@@ -186,9 +175,12 @@
 </div>
 
 <div class = "container">
-		<div class="text-center" >
-			<h3>Также в нашем санатории имеется современный бассейн, оборудованный всем необходимым</h3>	
-			</div>
+		<div class="text-center">
+			<p><span style="font-size:16px">В 700 м расположен поселковый галечный оборудованный пляж с дайвинг центром. Дорога к пляжу через парк. Летом на три лучших пляжа «Симеиз», «Голубой залив» и «Кацивели» гостей ежечасно доставляет комфортабельный бесплатный трансфер. </span></p>
+			<p><span style="font-size:16px">Для гостей усадьбы есть открытый бассейн с родниковой водой из собственного источника, теннисный корт с профессиональным покрытием, прокат. Для маленьких гостей есть детская игровая площадка, стульчики для кормления и кроватки.</span><br></p>
+			<p><span style="font-size:16px">В ресторане «Филлибер» повара готовят блюда фирменной крымской кухни. Кафе специализируется на европейской кухне, есть снек-бар. В тариф включен завтрак «шведский стол». Обслуживание клиентов осуществляется и в номерах, и в релакс-зонах у бассеинов.</span><br></p>
+			
+		</div>
 	<div class = "row justify-content-md-center justify-content-lg-center justify-content-center no-gutters " style = "padding: 33px 0;">
 		<div class = "col-6 col-md-4 col-sm-6 col-lg-4" style = "padding-top:10px;">
 			<img src="/img/img-block/slide7.jpg" class="" alt="logo" width="90%" height="auto" >
@@ -201,9 +193,9 @@
 		</div>
 	</div>
 </div>
-
-
-
+		<div class="text-center" id = "numbers" name = "numbers">
+		<h2>Гостям предлагаются комфортные номера с панорамными видами</h2>
+			</div>
 
 
 <?=$content?>
@@ -339,23 +331,26 @@ return res;
 <div class = "col-12 col-sm-12 col-md-6 col-lg-6"> 
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2868952.2528884467!2d32.28820361308605!3d45.39499658567419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1585585090694!5m2!1sru!2sru" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 </div>
-<div class = "col-12 col-sm-12 col-md-5 col-lg-5"> 
+<div class = "col-12 col-sm-12 col-md-5 col-lg-5 py-3" id = "adress" name = "adress"> 
 <h3>Адрес:</h3>
+<p>Адрес: Республика Крым, Ялта, п. Симеиз, ул. Советская, 78</p>
+<p>Телефон отдела бронирования: 
+<a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%">8(800) 201-84-80</span></a>
+<br>
+<a class="nav-link" href="tel:+79777043132"><span style = "color:green; font-size: 150%">+7(977)-704-31-32</span></a>
+</p>
+<p>Почта: eduvkrim82@mail.ru</p>
+
 </div>
 </div>
 </div>
 
 <div class = "container-fluid" style = "padding:0px; background-color:gray;">
-<div class = "row">
-<div class = "col-6 col-sm-6 col-md-4 col-lg-4">
-
-</div>
-<div class = "col-6 col-sm-6 col-md-4 col-lg-4">
-<p> Санаторий </p>
-</div>
-<div class = "col-6 col-sm-6 col-md-4 col-lg-4">
+<div class = "row align-self-center">
+<div class = "col-10 col-sm-10 col-md-10 col-lg-10 text-center">
 <p>  <a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%">8(800) 201-84-80</span></a> </p>
-<p>  eduvkrim82@mail.ru</p>
+<p>  <p>  eduvkrim82@mail.ru</p> 
+<p> © 2020 Отель для спокойного отдыха </p>
 </div>
 </div>
 </div>
