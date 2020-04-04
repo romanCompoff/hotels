@@ -1,7 +1,7 @@
 <?
 foreach($content as $hotel){
 	echo '<div class = "container py-5" >';
-		echo '<div class = "row justify-content-md-center justify-content-lg-center justify-content-center">';
+		echo '<div class = "row justify-content-md-center justify-content-lg-center justify-content-center myrow">';
 		// echo sprintf('<div class = "col-12 col-md-12 col-sm-12 col-lg-12"><h3>%s</h3></div>', $hotel[1]);
 		// echo sprintf('<div class = "col-12 col-md-12 col-sm-12 col-lg-12"><p>%s</p3</div>', $hotel[2]);
 		// echo '</div>';

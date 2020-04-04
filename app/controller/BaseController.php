@@ -8,6 +8,7 @@ class BaseController
 {
 	protected $title;
 	protected $articles;
+	protected $configs;
 	protected $content = "Контент в контроллере";
 
 		protected function myPath($name)
@@ -23,7 +24,8 @@ class BaseController
 		$this->myPath('main'),
 		[
 		'content' => $this->content,
-		'articles' => $this->articles
+		'articles' => $this->articles,
+		'configs' => $this->configs
 		]
 		);
 	}
@@ -54,6 +56,12 @@ class BaseController
 		$mPost = new BaseModel(DB::getConnect());
 		$articlesList = $mPost->getArticles();
 		$this->articles = $this->build($this->myPath($page), ['content' => $articlesList]);	
+	}
+			
+			public function allConfigs()
+	{
+		$mPost = new BaseModel(DB::getConnect());
+		$this->configs = $mPost->getConfigs();
 	}
 
 }

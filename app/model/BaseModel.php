@@ -13,9 +13,18 @@ class BaseModel
 		$this->db = $db;
 		$this->db->exec('SET NAMES UTF8');
 	}
+		
+	function getConfigs()
+	{
+		// $this->db->setAttribute($this->db::ATTR_DEFAULT_FETCH_MODE,$this->db::FETCH_NUM);
+		$sql = sprintf('SELECT * FROM %s', 'site_configs');
+		$stmt = $this->db->query($sql);
+		return $stmt->fetch();
+	}
+	
 		function getHotels()
 	{
-		$this->db->setAttribute($this->db::ATTR_DEFAULT_FETCH_MODE,$this->db::FETCH_NUM);
+		// $this->db->setAttribute($this->db::ATTR_DEFAULT_FETCH_MODE,$this->db::FETCH_NUM);
 		$sql = sprintf('SELECT * FROM %s', $this->table);
 		$stmt = $this->db->query($sql);
 		return $stmt->fetchAll();
@@ -23,7 +32,7 @@ class BaseModel
 			
 			function getArticles()
 	{
-		$this->db->setAttribute($this->db::ATTR_DEFAULT_FETCH_MODE,$this->db::FETCH_NUM);
+		// $this->db->setAttribute($this->db::ATTR_DEFAULT_FETCH_MODE,$this->db::FETCH_NUM);
 		$sql = sprintf('SELECT * FROM %s', 'articles');
 		$stmt = $this->db->query($sql);
 		return $stmt->fetchAll();
@@ -67,6 +76,7 @@ class BaseModel
 			]);
 			return $this->db->lastInsertId();
 		}
+		
 		
 		public function addArticle( $preview, $link1, $link2, $link3, $link4)
 		{	

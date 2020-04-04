@@ -1,4 +1,18 @@
 <html>
+<script>
+function SaveZakaz() {
+var res = "http://2kompa.ru/postS/myHotelsPost.php?phoneText=" + document.all.phoneText.value;
+res = res + "&messageText=" + document.all.messageText.value;
+res = res + "&recipientName=" + document.all.recipientName.value;
+
+if(document.all.phoneText.value){
+var xhr = new XMLHttpRequest();
+xhr.open('GET', res);
+xhr.send();
+return res;
+}}
+</script>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,13 +27,13 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
  
-    <title>Отели для вашего спокойного отдыха</title>
+    <title><?=$configs['heading1']?></title>
   </head>
   
 <body>
 	<div class = "container-fluid " style = "padding-right: 0px; padding-left: 0px;">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="/" style = "color:green; text-style:bold;">ГОЛУБОЙ ЗАЛИВ</a>
+			<a class="navbar-brand" href="/" style = "color:green; text-style:bold;"><?=$configs['siteName']?></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -30,13 +44,13 @@
 							<a class="nav-link" href="#">Домашняя <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#numbers">Номера</a>
+							<a class="nav-link" href="#numbers"><?=$configs['menu1']?></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#adress">Адрес и контакты</a>
+							<a class="nav-link" href="#adress"><?=$configs['menu2']?></a>
 						</li>
 					</ul>
-					<a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%">8(800) 201-84-80</span></a>
+					<a class="nav-link" href="tel:<?=$configs['phoneNumber']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a>
 					<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>					
 				</div>
 		</nav>
@@ -53,8 +67,8 @@
     <div class = "row justify-content-md-center justify-content-center no-gutters">
 		<div class = "col-11">							
 			<div class="text-center">
-				<h1>Усадьба «Голубой залив»</h1>
-		<p><span style="font-size:16px">Место для тихого спокойного отдыха в уединении на территории старинного парка. Добро пожаловать в Лименскую долину!</span></p>
+				<h1><?=$configs['heading1']?></h1>
+		<p><span style="font-size:16px"><?=$configs['words1']?></span></p>
 		</div>
 		<?=$articles?>
 
@@ -88,9 +102,7 @@
 	</div>
 </div>
 -->
-<div class = "container" style = "padding: 100px 0;">
-	<div class = "row justify-content-md-center justify-content-lg-center justify-content-center no-gutters">
-		
+	
 		<!--
 		<div class="text-center">
 			<h2>Почему мы?</h2>
@@ -128,9 +140,6 @@
   </div>
 </div>
 -->
-	</div>
-</div>
-
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -164,55 +173,16 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">ЗАКРЫТЬ</button>
         
 		</form>
-		
-		
-
-
       </div>
     </div>
   </div>
 </div>
-<!--
-<div class = "container">
-		<div class="text-center">
-			<p><span style="font-size:16px">В 700 м расположен поселковый галечный оборудованный пляж с дайвинг центром. Дорога к пляжу через парк. Летом на три лучших пляжа «Симеиз», «Голубой залив» и «Кацивели» гостей ежечасно доставляет комфортабельный бесплатный трансфер. </span></p>
-			<p><span style="font-size:16px">Для гостей усадьбы есть открытый бассейн с родниковой водой из собственного источника, теннисный корт с профессиональным покрытием, прокат. Для маленьких гостей есть детская игровая площадка, стульчики для кормления и кроватки.</span><br></p>
-			<p><span style="font-size:16px">В ресторане «Филлибер» повара готовят блюда фирменной крымской кухни. Кафе специализируется на европейской кухне, есть снек-бар. В тариф включен завтрак «шведский стол». Обслуживание клиентов осуществляется и в номерах, и в релакс-зонах у бассеинов.</span><br></p>
-			
-		</div>
-	<div class = "row justify-content-md-center justify-content-lg-center justify-content-center no-gutters " style = "padding: 33px 0;">
-		<div class = "col-6 col-md-4 col-sm-6 col-lg-4" style = "padding-top:10px;">
-			<img src="/img/img-block/slide7.jpg" class="" alt="logo" width="90%" height="auto" >
-		</div>
-		<div class = "col-6 col-md-4 col-sm-6 col-lg-4" style = "padding-top:10px;">
-			<img src="/img/img-block/slide8.jpg" class="" alt="logo" width="90%" height="auto" >
-		</div>
-		<div class = "col-6 col-md-4 col-sm-6 col-lg-4" style = "padding-top:10px;">
-			<img src="/img/img-block/slide9.jpg" class="" alt="logo" width="90%" height="auto" >
-		</div>
-	</div>
-</div>
--->
+
 <div class = "text-center">
-<h2>Предлагаем вашему вниманию список номеров</h2>
+<h2 id = "numbers"><?=$configs['heading2']?></h2>
+<p><span style="font-size:16px"><?=$configs['words2']?></span></p>
 </div>
 <?=$content?>
-
-	  		<script>
-function SaveZakaz() {
-var res = "http://s70515.smrtp.ru/new-hotels/myPost.php?phoneText=" + document.all.phoneText.value;
-res = res + "&messageText=" + document.all.messageText.value;
-res = res + "&recipientName=" + document.all.recipientName.value;
-
-if(document.all.phoneText.value){
-var xhr = new XMLHttpRequest();
-xhr.open('GET', res);
-xhr.send();
-return res;
-}}
-</script>
-
-
 
 
 
@@ -301,6 +271,7 @@ return res;
 .img-wrap #haze:hover{
 	opacity:1;
 }
+.row {margin-left: 0; margin-right: 0;}
 @media screen and (max-width: 650px){
 	.img-wrap p{
 	font-size:14px;
@@ -331,13 +302,13 @@ return res;
 </div>
 <div class = "col-12 col-sm-12 col-md-5 col-lg-5 py-3" id = "adress" name = "adress"> 
 <h3>Адрес:</h3>
-<p>Адрес: Республика Крым, Ялта, п. Симеиз, ул. Советская, 78</p>
+<p><?=$configs['adress']?></p>
 <p>Телефон отдела бронирования: 
-<a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%">8(800) 201-84-80</span></a>
+<a class="nav-link" href="tel:<?=$configs['phoneNumber']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a>
 <br>
-<a class="nav-link" href="tel:+79777043132"><span style = "color:green; font-size: 150%">+7(977)-704-31-32</span></a>
+<a class="nav-link" href="tel:<?=$configs['phoneNumber2']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber2']?></span></a>
 </p>
-<p>Почта: eduvkrim82@mail.ru</p>
+<p><?=$configs['email']?></p>
 
 </div>
 </div>
@@ -346,9 +317,9 @@ return res;
 <div class = "container-fluid" style = "padding:0px; background-color:gray;">
 <div class = "row align-self-center">
 <div class = "col-10 col-sm-10 col-md-10 col-lg-10 text-center">
-<p>  <a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%">8(800) 201-84-80</span></a> </p>
-<p>  <p>  eduvkrim82@mail.ru</p> 
-<p> © 2020 Отель для спокойного отдыха </p>
+<p>  <a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a> </p>
+<p>  <p>  <?=$configs['email']?></p> 
+<p> © 2020 <?=$configs['siteName']?></p>
 </div>
 </div>
 </div>
