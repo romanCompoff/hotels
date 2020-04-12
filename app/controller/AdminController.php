@@ -30,15 +30,17 @@ class AdminController Extends BaseController
 	{
 	
 		$mPost = new BaseModel(DB::getConnect());
-		$lastId = $mPost->addPost($post['heading'], $post['price'], $post['preview'], $post['link1'], $post['link2'], $post['link3'], $post['link4']);
+		$lastId = $mPost->addPost(	$this->chk($post['heading']),
+									$this->chk($post['price']), 
+									$this->chk($post['preview']));
 		return $lastId;
 	}
 	
 		public function addArticles($post)
 	{
-	
+		
 		$mPost = new BaseModel(DB::getConnect());
-		$lastId = $mPost->addArticle($post['preview'], $post['link1'], $post['link2'], $post['link3'], $post['link4']);
+		$lastId = $mPost->addArticle($this->chk($post['preview']));
 		return $lastId;
 	}
 	
@@ -54,6 +56,12 @@ class AdminController Extends BaseController
 			
 			$mPost = new baseModel(DB::getConnect());
 			$mPost->deleteArticle($id);
+	}
+	
+			public function chk($word)
+	{
+			$word = htmlspecialchars($word);
+			return $word;
 	}
 
 

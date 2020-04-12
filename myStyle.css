@@ -1,0 +1,133 @@
+   @font-face {
+    font-family: adana;
+    src: local(adana), url(/fonts/7834.ttf);
+   }
+.navbar-light .navbar-brand
+	{
+		font-family:'adana';
+		font-size:48px;
+		font-weight:900;
+		line-height:1.2;
+		color:white;
+		background-image:url('/img/logo.png');
+		background-repeat:no-repeat;
+		text-shadow: 2px 0 2px #3f89aa, 
+					 0 2px 2px #3f89aa, 
+					 -2px 0 2px #3f89aa, 
+					 0 -2px 2px #3f89aa;
+	}	
+	.navbar-light:hover .navbar-brand:hover{
+		color:white;
+	}
+	.navbar-light .navbar-nav .nav-link{
+		color:#3f89aa;
+	}
+	.active>.nav-link{
+		color:#3f89aa;
+	}
+body
+{
+	box-sizing: content-box
+}
+.h1, h1, h2 {
+    font-size: 2rem;
+	font-size:48px;
+	font-weight:900;
+	color:#3f89aa;
+
+}
+.card{
+	 display:block; 
+}
+.img-wrap {
+  position: relative;
+  text-align:center;
+}
+
+.img-wrap #haze {
+	
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 10%;
+  width: auto;
+  min-width:50%;
+  height:auto;
+  opacity: 0.8;
+  background-color:white;
+  border-radius: 12px;
+  padding: 12px;
+}
+.img-wrap p{
+	font-size:16px;
+}
+.img-wrap h1{
+	font-size:24px;
+}
+.img-wrap #haze:hover{
+	opacity:1;
+}
+.myElements{
+	color:#3f89aa; 
+	font-size: 150%;
+}
+.btn-success:hover{
+	background-color:#0038b5;
+}
+.btn-success {
+    color: #fff;
+    background-color: #3f89aa;
+    border-color: white;
+}
+.row {margin-left: 0; margin-right: 0;}
+.list-rectangle {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list-rectangle>li {
+  position: relative;
+  display: block;
+  margin-bottom: .25rem;
+  padding: .325rem .825rem .325rem 1.325rem;
+  color: #fff;
+  background: #3f89aa;
+}
+.list-rectangle>li:last-child {
+  margin-bottom: 0;
+}
+.list-rectangle>li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0.5rem;
+  background: #ec407a;
+}
+@media screen and (max-width: 650px){
+	.img-wrap p{
+	font-size:14px;
+}
+.img-wrap h1{
+	font-size:16px;
+}
+
+.h1, h1, h2 {
+	font-size:16px;
+}
+p {
+	font-size:12px;
+}
+.table{
+	font-size:12;
+}
+.img-wrap #haze {
+	left: 3%;
+	right: 3%;
+	top: 3%;
+}
+}
+.btn-success:not(:disabled):not(.disabled).active, .btn-success:not(:disabled):not(.disabled):active, .show>.btn-success.dropdown-toggle{
+background-color:#3f89aa;	
+}

@@ -50,10 +50,10 @@ if(!empty($_POST)){
 			 mkdir($dir, 0777, true);
 		 }
 
-	$destiation_dir = $dir . $_FILES['link1']['name'];
-	$destiation_dir2 = $dir . $_FILES['link2']['name'];
-	$destiation_dir3 = $dir . $_FILES['link3']['name'];
-	$destiation_dir4 = $dir . $_FILES['link4']['name'];
+	$destiation_dir = $dir . 'slide1.jpg';
+	$destiation_dir2 = $dir . 'slide2.jpg';
+	$destiation_dir3 = $dir . 'slide3.jpg';
+	$destiation_dir4 = $dir . 'slide4.jpg';
 	move_uploaded_file($_FILES['link1']['tmp_name'], $destiation_dir ); 
 	move_uploaded_file($_FILES['link2']['tmp_name'], $destiation_dir2 ); 
 	move_uploaded_file($_FILES['link3']['tmp_name'], $destiation_dir3 ); 

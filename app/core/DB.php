@@ -16,7 +16,7 @@ class DB
 	
 	protected static function connect()
 	{
-		$dsn = sprintf('%s:host=%s;dbname=%s', 'mysql', 'localhost', 'hotels');
+		$dsn = sprintf('%s:host=%s;dbname=%s', 'mysql', 'localhost', 'smaker');
 		return new \PDO($dsn, 'root', '');
 	}
 

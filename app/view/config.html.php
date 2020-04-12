@@ -107,7 +107,7 @@ function showMess(element, howLong, t)
 					}
 						else
 						{
-							document.getElementById('mySubmit').innerHTML='Отправить';}
+							document.getElementById('mySubmit').innerHTML='<button type = "submit" name = "Отправить">Отправить</button>';}
 						}
 				}
 				

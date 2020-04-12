@@ -1,17 +1,5 @@
 <html>
-<script>
-function SaveZakaz() {
-var res = "http://2kompa.ru/postS/myHotelsPost.php?phoneText=" + document.all.phoneText.value;
-res = res + "&messageText=" + document.all.messageText.value;
-res = res + "&recipientName=" + document.all.recipientName.value;
 
-if(document.all.phoneText.value){
-var xhr = new XMLHttpRequest();
-xhr.open('GET', res);
-xhr.send();
-return res;
-}}
-</script>
 
 <!doctype html>
 <html lang="en">
@@ -21,6 +9,7 @@ return res;
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/myStyle.css">
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -33,14 +22,14 @@ return res;
 <body>
 	<div class = "container-fluid " style = "padding-right: 0px; padding-left: 0px;">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="/" style = "color:green; text-style:bold;"><?=$configs['siteName']?></a>
+			<a class="navbar-brand" href="/"><?=$configs['siteName']?></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link" href="#">Домашняя <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
@@ -50,14 +39,20 @@ return res;
 							<a class="nav-link" href="#adress"><?=$configs['menu2']?></a>
 						</li>
 					</ul>
-					<a class="nav-link" href="tel:<?=$configs['phoneNumber']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a>
+					<a class="nav-link" href="tel:<?=$configs['phoneNumber']?>"><span class = "myElements"><?=$configs['phoneNumber']?></span></a>
 					<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>					
 				</div>
 		</nav>
     <div class = "row" style = "margin:0px; padding:0">
 		<div class = "col-12 col-sm-12 col-md-12 col-lg-12" style = "padding:0;">
 			<div class="img-wrap">
-				<img src="/img/banner.jpg" class="img-fluid" alt="Отели на ваш выбор" style = "padding:0">
+				<img src="/img/banner.jpg" class="img-fluid" alt="Отели на ваш выбор" style = "padding:0; width:100%">
+				<div id="haze">
+		<h1>Сайты по смешным ценам</h1>
+		<p>Разработка сайтов под ваши требования.</p>
+		<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
+
+		</div>
 			</div>
 		</div>
 	</div>
@@ -70,8 +65,20 @@ return res;
 				<h1><?=$configs['heading1']?></h1>
 		<p><span style="font-size:16px"><?=$configs['words1']?></span></p>
 		</div>
-		<?=$articles?>
-
+		<!-- ################-->
+		
+		<p><?=$articles?></p>
+		
+		<!-- ################-->
+		<div class="text-center">
+		<h3></h3>
+<ul class="list-rectangle py-5">
+  <li>Одностраничники</li>
+  <li>Полноценные сайты</li>
+  <li>Реклама в интернете</li>
+  <li>Разработка приложений</li>
+</ul>
+</div>
 		</div>
 	</div>
 </div>
@@ -102,44 +109,43 @@ return res;
 	</div>
 </div>
 -->
-	
-		<!--
+<div class = "container">	
+		
 		<div class="text-center">
-			<h2>Почему мы?</h2>
-				<p style="font-size:16px; padding: 33 0;">Наши преимущества перед другими отелями</p>
+			<h2>Что я предлагаю?</h2>
+				<p style="font-size:16px; padding: 33 0;">Почему стоит обратиться именно ко мне?</p>
 		</div>
-<div class="card-deck">
+<div class="card-deck mx-0">
   <div class="card">
   <div class="text-center">
-    <img class="card-img-top" src="/img/img-block/slide9.png" alt="Качество обслуживания" style = "width:70%;">
+    <img class="card-img-top py-5" src="/img/img-cards/slide9.png" alt="Качество обслуживания" style = "width:60%;">
     </div>
-	<div class="card-body">
-      <h5 class="card-title">КАЧЕСТВО ОБСЛУЖИВАНИЯ</h5>
-      <p class="card-text">Мы предлагаем самый высокий уровень обслуживания. Поможем подобрать номер, предоставим такси и ответим на все вопросы</p>
+	<div class="card-body text-center">
+      <h5 class="card-title">Качество обслуживаниея</h5>
+      <p class="card-text">Работаю на совесть. Нацелен на долгосрочное сотрудничество.</p>
       <p class="card-text"><small class="text-muted"></small></p>
     </div>
   </div>
   <div class="card"><div class="text-center">
-    <img class="card-img-top"  src="/img/img-block/slide8.png" alt="Медицинские услуги" style = "width:70%;">
+    <img class="card-img-top py-5"  src="/img/img-cards/slide1.png" alt="Медицинские услуги" style = "width:60%;">
 	</div>
-    <div class="card-body">
-      <h5 class="card-title">МЕДИЦИНСКИЕ УСЛУГИ</h5>
-      <p class="card-text">Наш санаторий предлагает целый перечень медицинских услуг, часть из которых уже включена в стоимость номера.</p>
+    <div class="card-body text-center">
+      <h5 class="card-title">Разумные цены</h5>
+      <p class="card-text">Работаю один от начала и до конца. Не надо кормить начальство. Цены ниже, чем у конкурентов.</p>
       <p class="card-text"><small class="text-muted"></small></p>
     </div>
   </div>
   <div class="card">
   <div class="text-center">
-    <img class="card-img-top" src="/img/img-block/slide7.png" alt="премиум номера" style = "width:70%;">
+    <img class="card-img-top py-5" src="/img/img-cards/slide7.png" alt="премиум номера" style = "width:60%;">
 	</div>
-    <div class="card-body">
-      <h5 class="card-title">ПРЕМИУМ НОМЕРА</h5>
-      <p class="card-text">У нас имеются элитные премиум номера, в которых вы найдете все что нужно для отдыха и оздоровления.</p>
+    <div class="card-body text-center">
+      <h5 class="card-title">Индивидуальный подход</h5>
+      <p class="card-text">Вы получите именно то, что лучше всего подойдет для ваших целей</p>
       <p class="card-text"><small class="text-muted"></small></p>
     </div>
   </div>
 </div>
--->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -177,19 +183,89 @@ return res;
     </div>
   </div>
 </div>
-
-<div class = "text-center">
+</div>
+<div class = "container">	
+<div class = "text-center  my-5 py-5">
 <h2 id = "numbers"><?=$configs['heading2']?></h2>
 <p><span style="font-size:16px"><?=$configs['words2']?></span></p>
 </div>
+</div>
+<!--
+Контент сайта
+ -->
 <?=$content?>
 
 
+<div class = "container">
+<table class="table table-hover">
+	
+	  <thead>
+    <tr>
+     <th>#</th>
+      <th>Услуга</th>
+      <th>Стоимость</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+	<th scope="row">шт.</th>
+      <td>Разработка сайта визитки</td>
+      <td>От 1500</td>
+    </tr>
+    <tr>
+	<th scope="row">шт.</th>
+      <td>Разработка сайта на CMS</td>
+      <td>От 1500</td>
+    </tr>
+    <tr>
+	<th scope="row">шт.</th>
+      <td>Разработка сайта под требования</td>
+      <td>От 3000</td>
+    </tr>
+    <tr>
+	<th scope="row">шт.</th>
+      <td>Перенос сайта</td>
+      <td>От 500</td>
+    </tr>
+    <tr>
+	<th scope="row">год</th>
+      <td>Размещение сайта на хостинге</td>
+      <td>500</td>
+	  </tr>
+    <tr>
+
+    <tr>
+	<th scope="row">шт.</th>
+      <td>Разработка приложения</td>
+      <td>От 500</td>
+	  </tr>
+    <tr>    
+	
+	<tr>
+	<th scope="row">шт.</th>
+      <td>Другие услуги</td>
+      <td>По договренности</td>
+	  </tr>
+    <tr>
+
+  </tbody>
+</table>
+</div>
 
 
-
-
-
+<div class = "container">
+<div class="text-center">
+		<h3>Когда вам не подойдут мои услуги</h3>
+		<p>Так как я работаю один по всем направлениям есть определенные причины, почему мои услуги вам могут не подойти.</p>
+<ul class="list-rectangle py-5">
+  <li>Срочный заказ</li>
+  <li>Большой проект, нацеленный на команду разработчиков</li>
+  <li>Сложный проект на многих языках программирования</li>
+  <li>Требуется финансовая отчетность</li>
+  <li>И прочее</li>
+</ul>
+</div>
+</div>
 
 <!--<div class = "container" style = "padding: 100px 0;">
 	<div class = "row justify-content-md-center justify-content-lg-center justify-content-center no-gutters">
@@ -236,63 +312,11 @@ return res;
 		
 	</div>
 </div>-->
-<style>
-.h1, h1 {
-    font-size: 2rem;
-}
-.card{
-	 display:block; 
-}
-.img-wrap {
-  position: relative;
-  text-align:center;
-}
-
-.img-wrap #haze {
-	
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  top: 10%;
-  width: auto;
-  min-width:50%;
-  height:auto;
-  opacity: 0.8;
-  background-color:white;
-  border-radius: 12px;
-  padding: 12px;
-}
-.img-wrap p{
-	font-size:16px;
-}
-.img-wrap h1{
-	font-size:24px;
-}
-.img-wrap #haze:hover{
-	opacity:1;
-}
-.row {margin-left: 0; margin-right: 0;}
-@media screen and (max-width: 650px){
-	.img-wrap p{
-	font-size:14px;
-}
-.img-wrap h1{
-	font-size:16px;
-}
-.img-wrap #haze {
-	left: 3%;
-	right: 3%;
-	top: 3%;
-}
-}
-
-</style>
-
 
 <div class = "container" style = "padding: 33px 0;">
 <div class = "text-center" style = "padding: 33px 0;">
 <p>
-Оставьте заявку на сайте, и наши менеджеры помогут подобрать номер!
+Оставьте заявку на сайте, или позвоните мен!
 </p>
 <button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
 </div>
@@ -303,7 +327,7 @@ return res;
 <div class = "col-12 col-sm-12 col-md-5 col-lg-5 py-3" id = "adress" name = "adress"> 
 <h3>Адрес:</h3>
 <p><?=$configs['adress']?></p>
-<p>Телефон отдела бронирования: 
+<p>Телефон: 
 <a class="nav-link" href="tel:<?=$configs['phoneNumber']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a>
 <br>
 <a class="nav-link" href="tel:<?=$configs['phoneNumber2']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber2']?></span></a>
@@ -317,11 +341,40 @@ return res;
 <div class = "container-fluid" style = "padding:0px; background-color:gray;">
 <div class = "row align-self-center">
 <div class = "col-10 col-sm-10 col-md-10 col-lg-10 text-center">
-<p>  <a class="nav-link" href="tel:88002018480"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a> </p>
+<p >  <a class="nav-link" href="tel:<?=$configs['phoneNumber']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a> </p>
 <p>  <p>  <?=$configs['email']?></p> 
-<p> © 2020 <?=$configs['siteName']?></p>
+<p> © 2020 <?=$configs['siteName']?>
+
+</p>
 </div>
 </div>
 </div>
+<script>
+function SaveZakaz() {
+var res = "/myScripts/myPost.php?phoneText=" + document.all.phoneText.value;
+res = res + "&messageText=" + document.all.messageText.value;
+res = res + "&recipientName=" + document.all.recipientName.value;
+if(document.all.phoneText.value){
+var xhr = new XMLHttpRequest();
+xhr.open('GET', res);
+xhr.send();
+return res;
+}}
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(61844020, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/61844020" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
   </body>
 </html>

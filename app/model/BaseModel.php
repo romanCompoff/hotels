@@ -61,34 +61,27 @@ class BaseModel
 		$this->RDir($path);
 		}
 			
-		public function addPost($heading, $price, $preview, $link1, $link2, $link3, $link4)
+		public function addPost($heading, $price, $preview)
 	{	
-			$sql = sprintf("INSERT INTO %s (heading, price, preview, img1, img2, img3, img4) VALUES (:heading, :price, :preview, :link1, :link2, :link3, :link4)", $this->table);
+			$sql = sprintf("INSERT INTO %s (heading, price, preview) VALUES (:heading, :price, :preview)", $this->table);
 			$stmt = $this->db->prepare($sql);
 			$stmt->execute([
 			'heading' => $heading,
 			'price' => $price,
-			'preview' => $preview,
-			'link1' => $link1,
-			'link2' => $link2,
-			'link3' => $link3,
-			'link4' => $link4
+			'preview' => $preview
 			]);
 			return $this->db->lastInsertId();
 		}
 		
 		
-		public function addArticle( $preview, $link1, $link2, $link3, $link4)
+		public function addArticle( $preview)
 		{	
 		
-			$sql = sprintf("INSERT INTO %s (preview, img_1, img_2, img_3, img_4) VALUES (:preview, :link1, :link2, :link3, :link4)", 'articles');
+			$sql = sprintf("INSERT INTO %s (preview) VALUES (:preview)", 'articles');
 			$stmt = $this->db->prepare($sql);
 			$stmt->execute([
 			'preview' => $preview,
-			'link1' => $link1,
-			'link2' => $link2,
-			'link3' => $link3,
-			'link4' => $link4
+		
 			]);
 			return $this->db->lastInsertId();
 		}
