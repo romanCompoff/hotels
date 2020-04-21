@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.15.10
--- https://www.phpmyadmin.net
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
 --
--- Хост: localhost
--- Время создания: Апр 12 2020 г., 08:11
--- Версия сервера: 5.5.64-MariaDB-cll-lve
--- Версия PHP: 5.4.16
+-- Хост: 127.0.0.1:3306
+-- Время создания: Апр 21 2020 г., 17:29
+-- Версия сервера: 10.3.13-MariaDB-log
+-- Версия PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,7 +28,7 @@ SET time_zone = "+00:00";
 -- Структура таблицы `allhotels`
 --
 
-CREATE TABLE IF NOT EXISTS `allhotels` (
+CREATE TABLE `allhotels` (
   `id` int(12) NOT NULL,
   `heading` text NOT NULL,
   `preview` text NOT NULL,
@@ -38,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `allhotels` (
   `isOn` varchar(3) DEFAULT 'ON',
   `orderHotels` int(12) DEFAULT NULL,
   `new` int(12) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -46,15 +48,51 @@ CREATE TABLE IF NOT EXISTS `allhotels` (
 -- Структура таблицы `articles`
 --
 
-CREATE TABLE IF NOT EXISTS `articles` (
+CREATE TABLE `articles` (
   `id` int(11) NOT NULL,
-  `preview` text,
+  `preview` text DEFAULT NULL,
   `img_1` varchar(155) DEFAULT 'slide1.jpg',
   `img_2` varchar(155) DEFAULT 'slide2.jpg',
   `img_3` varchar(155) DEFAULT 'slide3.jpg',
   `img_4` varchar(155) DEFAULT 'slide4.jpg',
   `is_ON` varchar(3) NOT NULL DEFAULT 'ON'
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `gadsstat`
+--
+
+CREATE TABLE `gadsstat` (
+  `id` int(12) NOT NULL,
+  `TS` timestamp NOT NULL DEFAULT current_timestamp(),
+  `lastTS` timestamp NOT NULL DEFAULT current_timestamp(),
+  `utm_source` varchar(33) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `utm_medium` varchar(33) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `utm_campaign` varchar(33) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `utm_content` varchar(33) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `utm_term` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `device` varchar(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `position` varchar(12) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(33) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `callMethod` varchar(12) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profit` int(5) DEFAULT NULL,
+  `1` int(12) DEFAULT NULL,
+  `2` int(5) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `gadsstat`
+--
+
+INSERT INTO `gadsstat` (`id`, `TS`, `lastTS`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `device`, `position`, `status`, `callMethod`, `profit`, `1`, `2`) VALUES
+(25, '2020-04-21 13:03:33', '2020-04-21 13:03:33', 'google', 'cpc', '{campaignid}', '{creative}', '{keyword}', 'b', 'position', NULL, NULL, NULL, NULL, NULL),
+(26, '2020-04-21 13:04:30', '2020-04-21 13:04:30', 'google', 'cpc', '{campaignid}', '{creative}', '{keyword}', 'b', 'position', NULL, NULL, NULL, NULL, NULL),
+(27, '2020-04-21 13:05:30', '2020-04-21 13:05:30', 'google', 'cpc', '{campaignid}', '{creative}', '{keyword}', 'b', 'position', NULL, NULL, NULL, NULL, NULL),
+(28, '2020-04-21 13:08:47', '2020-04-21 13:08:47', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL),
+(29, '2020-04-21 13:24:12', '2020-04-21 13:24:12', 'google', 'cpc', '{campaignid}', '{creative}', '{keyword}', 'b', 'position', NULL, NULL, NULL, NULL, NULL),
+(30, '2020-04-21 14:03:03', '2020-04-21 14:03:03', 'google', 'cpc', '{campaignid}', '{creative}', '{keyword}', 'b', 'position', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -62,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Структура таблицы `site_configs`
 --
 
-CREATE TABLE IF NOT EXISTS `site_configs` (
+CREATE TABLE `site_configs` (
   `id` int(11) NOT NULL,
   `banner` varchar(100) DEFAULT 'banner.jpg',
   `siteName` varchar(100) DEFAULT NULL,
@@ -70,14 +108,14 @@ CREATE TABLE IF NOT EXISTS `site_configs` (
   `menu2` varchar(100) DEFAULT NULL,
   `phoneNumber` varchar(20) DEFAULT NULL,
   `phoneNumber2` varchar(20) DEFAULT NULL,
-  `heading1` text,
-  `words1` text,
-  `heading2` text,
-  `words2` text,
+  `heading1` text DEFAULT NULL,
+  `words1` text DEFAULT NULL,
+  `heading2` text DEFAULT NULL,
+  `words2` text DEFAULT NULL,
   `adress` varchar(500) DEFAULT NULL,
   `email` varchar(155) DEFAULT NULL,
   `qqq` int(1) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `site_configs`
@@ -103,6 +141,12 @@ ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `gadsstat`
+--
+ALTER TABLE `gadsstat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `site_configs`
 --
 ALTER TABLE `site_configs`
@@ -116,17 +160,27 @@ ALTER TABLE `site_configs`
 -- AUTO_INCREMENT для таблицы `allhotels`
 --
 ALTER TABLE `allhotels`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
 --
 -- AUTO_INCREMENT для таблицы `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT для таблицы `gadsstat`
+--
+ALTER TABLE `gadsstat`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
 --
 -- AUTO_INCREMENT для таблицы `site_configs`
 --
 ALTER TABLE `site_configs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
