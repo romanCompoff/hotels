@@ -31,8 +31,9 @@
 						</li>
 					
 						<li class="nav-item">
-							<a class="nav-link" href="/admin.php?admin=list">Удаление и отключение</a>
+							<a class="nav-link" href="/admin.php?admin=list">Удаление</a>
 						</li>
+						
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Добавление
@@ -41,6 +42,18 @@
 								<a class="dropdown-item" href="/admin.php">Добавление отеля</a>
 								<a class="dropdown-item" href="/adminArticle.php">Добавление блока</a>
 								<a class="dropdown-item" href="/adminConfig.php">Конфигурации</a>
+								<div class="dropdown-divider">
+								</div>
+								
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Реклама
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="asd/GAdsAdmin.php">Сегодня</a>
+						
 								<div class="dropdown-divider">
 								</div>
 								

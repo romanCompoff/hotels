@@ -39,7 +39,7 @@
 							<a class="nav-link" href="#adress"><?=$configs['menu2']?></a>
 						</li>
 					</ul>
-					<a class="nav-link" href="tel:<?=$configs['phoneNumber']?>"><span class = "myElements"><?=$configs['phoneNumber']?></span></a>
+					<a class="nav-link conversion" href="tel:<?=$configs['phoneNumber']?>"><span class = "myElements jsphone"><?=$configs['phoneNumber']?></span></a>
 					<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>					
 				</div>
 		</nav>
@@ -328,11 +328,11 @@
 <h3>Адрес:</h3>
 <p><?=$configs['adress']?></p>
 <p>Телефон: 
-<a class="nav-link" href="tel:<?=$configs['phoneNumber']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a>
+<a class="nav-link conversion" href="tel:<?=$configs['phoneNumber']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a>
 <br>
-<a class="nav-link" href="tel:<?=$configs['phoneNumber2']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber2']?></span></a>
+<a class="nav-link conversion" href="tel:<?=$configs['phoneNumber2']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber2']?></span></a>
 </p>
-<p><?=$configs['email']?></p>
+<p class=" jsphone"><?=$configs['email']?></p>
 
 </div>
 </div>
@@ -341,7 +341,7 @@
 <div class = "container-fluid" style = "padding:0px; background-color:gray;">
 <div class = "row align-self-center">
 <div class = "col-10 col-sm-10 col-md-10 col-lg-10 text-center">
-<p >  <a class="nav-link" href="tel:<?=$configs['phoneNumber']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a> </p>
+<p >  <a class="nav-link conversion" href="tel:<?=$configs['phoneNumber']?>"><span style = "color:green; font-size: 150%"><?=$configs['phoneNumber']?></span></a> </p>
 <p>  <p>  <?=$configs['email']?></p> 
 <p> © 2020 <?=$configs['siteName']?>
 
@@ -351,7 +351,7 @@
 </div>
 <script>
 function SaveZakaz() {
-var res = "/myScripts/myPost.php?phoneText=" + document.all.phoneText.value;
+var res = "/app/core/myPost.php?phoneText=" + document.all.phoneText.value;
 res = res + "&messageText=" + document.all.messageText.value;
 res = res + "&recipientName=" + document.all.recipientName.value;
 if(document.all.phoneText.value){
@@ -360,6 +360,20 @@ xhr.open('GET', res);
 xhr.send();
 return res;
 }}
+
+var myPhone = document.getElementsByClassName('conversion'); 
+
+[].forEach.call( myPhone, function(el) {
+    //вешаем событие
+    el.onclick = function(e) {
+        var res = "/app/core/myPost.php?phoneText=исходящий-звонок"
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', res);
+		xhr.send();
+		return res;
+    }
+});
+
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >

@@ -1,4 +1,6 @@
- <?php
+<?php namespace Dva\Hotels\core;
+	
+	use Dva\Hotels\controller\GAdsController;
 /**
 * SendMailSmtpClass
 * 
@@ -162,5 +164,5 @@ $result =  $mailSMTP->send('s1te@bk.ru', 'Обратная связь с сай�
 }
 }
 
-
-	  ?>
+// $w = new GAdsController;
+// var_dump($w);
