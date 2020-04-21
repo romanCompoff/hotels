@@ -24,5 +24,12 @@ class GAdsController Extends AdminController
 		return $lastId;
 			
 	}
+	
+		public function outputUsers()
+	{
+			$mPost = new GAdsModel(DB::getConnect());
+			$usersList = $mPost->getUsers();
+			$this->content = $this->build($this->myPath('adsViews/allUsersList'), ['content' => $usersList]);
+	}
 
 }

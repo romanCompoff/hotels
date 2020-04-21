@@ -52,7 +52,7 @@
 							Реклама
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="asd/GAdsAdmin.php">Сегодня</a>
+								<a class="dropdown-item" href="/ads/GAdsAdmin.php">Сегодня</a>
 						
 								<div class="dropdown-divider">
 								</div>

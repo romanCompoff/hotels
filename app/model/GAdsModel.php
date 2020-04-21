@@ -30,4 +30,12 @@ class GAdsModel Extends BaseModel
 			]);
 			return $this->db->lastInsertId();
 		}
+		
+			function getUsers()
+		{
+			// $this->db->setAttribute($this->db::ATTR_DEFAULT_FETCH_MODE,$this->db::FETCH_NUM);
+			$sql = sprintf('SELECT * FROM %s', $this->table);
+			$stmt = $this->db->query($sql);
+			return $stmt->fetchAll();
+		}
 }
