@@ -31,11 +31,31 @@ class GAdsModel Extends BaseModel
 			return $this->db->lastInsertId();
 		}
 		
-			function getUsers()
+			public function getUsers()
 		{
 			// $this->db->setAttribute($this->db::ATTR_DEFAULT_FETCH_MODE,$this->db::FETCH_NUM);
-			$sql = sprintf('SELECT * FROM %s', $this->table);
+			$sql = sprintf('SELECT * FROM %s WHERE lastTS = "%s"', $this->table, date("Y-m-d"));
 			$stmt = $this->db->query($sql);
 			return $stmt->fetchAll();
+		}
+			
+			public function editStatus($status, int $id)
+		{
+			$sql = sprintf("UPDATE %s SET $status = 'OK' WHERE id = :id2", $this->table);
+			$stmt = $this->db->prepare($sql);
+			$stmt->execute([
+			'id2' => $id
+			]);
+		}	
+			public function editProfit($summ, int $id)
+		{
+			$sql = sprintf("UPDATE %s SET profit = :summ WHERE id = :id2", $this->table);
+			$stmt = $this->db->prepare($sql);
+			$stmt->execute([
+			'summ' => $summ,
+			'id2' => $id
+			]);
+			$this->editStatus('status', $id);
+			$this->editStatus('callMethod', $id);
 		}
 }

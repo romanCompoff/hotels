@@ -31,5 +31,15 @@ class GAdsController Extends AdminController
 			$usersList = $mPost->getUsers();
 			$this->content = $this->build($this->myPath('adsViews/allUsersList'), ['content' => $usersList]);
 	}
-
+	
+		public function sendStatus(int $id , $col)
+	{
+		$mPost = new GAdsModel(DB::getConnect());
+		$mPost->editStatus($col, $id);		
+	}	
+		public function sendProfit(int $id , $summ)
+	{
+		$mPost = new GAdsModel(DB::getConnect());
+		$mPost->editProfit($summ, $id);	
+	}
 }
