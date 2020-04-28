@@ -6,6 +6,7 @@ use Dva\Hotels\core\DB;
 class GAdsModel Extends BaseModel
 {
 	protected $table = 'gadsstat';
+	protected $keyTable = 'keygadsstat';
 
 	
 			public function addUser($utm_source, 
@@ -37,5 +38,34 @@ class GAdsModel Extends BaseModel
 			$sql = sprintf('SELECT * FROM %s', $this->table);
 			$stmt = $this->db->query($sql);
 			return $stmt->fetchAll();
+		}
+		
+			function getKeyLoger($k, $campaign)
+		{
+			$sql = sprintf("SELECT how_much , id FROM %s WHERE campaign = $campaign AND keyword = $k", $this->keyTable);
+			$stmt = $this->db->query($sql);
+			$how_much = $stmt->fetch();
+			return $how_much;
+		}
+		
+			function addKeyLoger($id, $how_much)
+		{
+		
+			$sql = sprintf("UPDATE %s SET how_much = :how_much WHERE id = $id", $this->keyTable);
+			$stmt = $this->db->prepare($sql);
+			$stmt->execute([
+			'how_much' => $how_much
+			]);
+			return $stmt->fetch();
+		}
+			function addKey($k, $campaign)
+		{
+			$sql = sprintf("INSERT INTO %s (campaign, keyword) VALUES (:campaign, :keyword)", $this->keyTable);
+			$stmt = $this->db->prepare($sql);
+			$stmt->execute([
+			'keyword' => $k,
+			'campaign' => $campaign
+			]);
+			return $this->db->lastInsertId();
 		}
 }

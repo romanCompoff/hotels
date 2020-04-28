@@ -1,7 +1,7 @@
-<?php namespace Dva\Hotels\core;
+<?php 
+namespace Dva\Hotels\core;
 	
-	use Dva\Hotels\controller\GAdsController;
-/**
+	/**
 * SendMailSmtpClass
 * 
 * Класс для отправки писем через SMTP с авторизацией
@@ -137,32 +137,4 @@ class SendMailSmtpClass {
         
     }
 }
-  if(isset($_GET['phoneText'])){
-  $phone = $_GET['phoneText'];
-  $email = $_GET['messageText'];
-  $name = $_GET['recipientName'];
-  	 
- 
-   if(empty($phone)){
-	  echo "<font color=\"red\">Нельзя отправить пустое сообщение</br><br/>";
-	  $output_form = true;
-	  }
-  if(!empty($phone)){
-	   var_dump($phone);
-$mailSMTP = new SendMailSmtpClass('voronezhotdelka', '123ewqASD', 'ssl://smtp.gmail.com', '1212', 465);
-// $mailSMTP = new SendMailSmtpClass('логин', 'пароль', 'хост', 'имя отправителя');
- 
-// заголовок письма
-$headers= "MIME-Version: 1.0\r\n";
-$headers .= "Content-type: text/html; charset=utf-8\r\n"; // кодировка письма
-$headers .= "From: Письмо с сайта <voronezhotdelka@gmail.com>\r\n"; // от кого письмо
-$result =  $mailSMTP->send('s1te@bk.ru', 'Обратная связь с сайта', 'Уважаемая Администация сайта 2компа, вам отправлено письмо через форму обратной связи.
-<br>Имя: ' . $name . '
-<br>Номер телефона: ' . $phone . '
-<br>Почта: ' . $email, $headers); 
-// $result =  $mailSMTP->send('Кому письмо', 'Тема письма', 'Текст письма', 'Заголовки письма');
-}
-}
-
-// $w = new GAdsController;
-// var_dump($w);
+  

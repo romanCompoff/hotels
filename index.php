@@ -12,5 +12,6 @@ $mainArticles = $controller->allArticles('articles');
 $main = $controller->allHotels('allHotels');
 $config = $controller->allConfigs();
 $controller->render();
-$ads = new GAdsController;
-$ads->addUser($_GET);
+// $ads = new GAdsController;
+// $ads->addKeyLoger();
+// $ads->addUser($_GET);

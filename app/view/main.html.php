@@ -351,9 +351,12 @@
 </div>
 <script>
 function SaveZakaz() {
-var res = "/app/core/myPost.php?phoneText=" + document.all.phoneText.value;
+res = "/app/router/sendToEMail?phoneText=" + document.all.phoneText.value;
 res = res + "&messageText=" + document.all.messageText.value;
 res = res + "&recipientName=" + document.all.recipientName.value;
+res +="&utm_term=<?=$_GET['utm_term']?>";
+res += "&utm_campaign=<?=$_GET['utm_campaign']?>";
+res += "&utm_content=<?=$_GET['utm_content']?>";
 if(document.all.phoneText.value){
 var xhr = new XMLHttpRequest();
 xhr.open('GET', res);
@@ -366,7 +369,9 @@ var myPhone = document.getElementsByClassName('conversion');
 [].forEach.call( myPhone, function(el) {
     //вешаем событие
     el.onclick = function(e) {
-        var res = "/app/core/myPost.php?phoneText=исходящий-звонок"
+        var res = "/app/router/sendToEMail?phoneText=исходящий-звонок&utm_term=<?=$_GET['utm_term']?>";
+		res += "&utm_campaign=<?=$_GET['utm_campaign']?>";
+		res += "&utm_content=<?=$_GET['utm_content']?>";
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', res);
 		xhr.send();

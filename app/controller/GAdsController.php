@@ -31,5 +31,19 @@ class GAdsController Extends AdminController
 			$usersList = $mPost->getUsers();
 			$this->content = $this->build($this->myPath('adsViews/allUsersList'), ['content' => $usersList]);
 	}
+	
+		public function addKeyLoger($kw, $campaign)
+	{
+			$mPost = new GAdsModel(DB::getConnect());
+			$keyMuch = $mPost->getKeyLoger($kw, $campaign);
+			if($keyMuch == false){
+				$mPost->addKey($kw, $campaign);
+			}
+			else{
+				$how_much = $keyMuch['how_much'] + 1;
+				$id = $keyMuch['id'];
+				$keyMuch = $mPost->addKeyLoger($id, $how_much);
+			}
+	}
 
 }
