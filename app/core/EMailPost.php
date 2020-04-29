@@ -1,8 +1,7 @@
 <?php
 namespace Dva\Hotels\core;
 
-use Dva\Hotels\Core\SendMailSmtpClass;
-use Dva\Hotels\Controller\GAdsController;
+use Dva\Hotels\core\SendMailSmtpClass;
 
 	class EMailPost
 	{
@@ -18,7 +17,6 @@ use Dva\Hotels\Controller\GAdsController;
 		<br>Имя: ' . $name . '
 		<br>Номер телефона: ' . $phone . '
 		<br>Почта: ' . $email, $headers); 
-		$gAds = new GAdsController;
-		$ads->addKeyLoger('123', '123');
+
 		}
 	}	

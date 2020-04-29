@@ -2,7 +2,7 @@
 namespace Dva\Hotels\Controller;
 
 use Dva\Hotels\Model\GAdsModel;
-use Dva\Hotels\Core\DB;
+use Dva\Hotels\core\DB;
 
 class GAdsController Extends AdminController
 {
@@ -31,12 +31,12 @@ class GAdsController Extends AdminController
 			$usersList = $mPost->getUsers();
 			$this->content = $this->build($this->myPath('adsViews/allUsersList'), ['content' => $usersList]);
 	}
-	
-<<<<<<< HEAD
+
 		public function addKeyLoger($kw, $campaign)
 	{
 			$mPost = new GAdsModel(DB::getConnect());
 			$keyMuch = $mPost->getKeyLoger($kw, $campaign);
+			var_dump($keyMuch);
 			if($keyMuch == false){
 				$mPost->addKey($kw, $campaign);
 			}
@@ -47,16 +47,4 @@ class GAdsController Extends AdminController
 			}
 	}
 
-=======
-		public function sendStatus(int $id , $col)
-	{
-		$mPost = new GAdsModel(DB::getConnect());
-		$mPost->editStatus($col, $id);		
-	}	
-		public function sendProfit(int $id , $summ)
-	{
-		$mPost = new GAdsModel(DB::getConnect());
-		$mPost->editProfit($summ, $id);	
-	}
->>>>>>> 4f7f13c93e591dabff1e13329431c03aadea09c4
 }

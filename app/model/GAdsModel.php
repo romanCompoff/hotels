@@ -39,13 +39,16 @@ class GAdsModel Extends BaseModel
 			$stmt = $this->db->query($sql);
 			return $stmt->fetchAll();
 		}
-<<<<<<< HEAD
 		
-			function getKeyLoger($k, $campaign)
+			function getKeyLoger($kw, int $campaign)
 		{
-			$sql = sprintf("SELECT how_much , id FROM %s WHERE campaign = $campaign AND keyword = $k", $this->keyTable);
+			var_dump($kw, $campaign);
+			$sql = sprintf("SELECT how_much , id FROM %s WHERE campaign = $campaign and keyword = '$kw'", $this->keyTable);
 			$stmt = $this->db->query($sql);
+			var_dump($stmt);	
+			
 			$how_much = $stmt->fetch();
+			var_dump($sql);
 			return $how_much;
 		}
 		
@@ -68,26 +71,5 @@ class GAdsModel Extends BaseModel
 			'campaign' => $campaign
 			]);
 			return $this->db->lastInsertId();
-=======
-			
-			public function editStatus($status, int $id)
-		{
-			$sql = sprintf("UPDATE %s SET $status = 'OK' WHERE id = :id2", $this->table);
-			$stmt = $this->db->prepare($sql);
-			$stmt->execute([
-			'id2' => $id
-			]);
-		}	
-			public function editProfit($summ, int $id)
-		{
-			$sql = sprintf("UPDATE %s SET profit = :summ WHERE id = :id2", $this->table);
-			$stmt = $this->db->prepare($sql);
-			$stmt->execute([
-			'summ' => $summ,
-			'id2' => $id
-			]);
-			$this->editStatus('status', $id);
-			$this->editStatus('callMethod', $id);
->>>>>>> 4f7f13c93e591dabff1e13329431c03aadea09c4
 		}
 }
