@@ -1,8 +1,7 @@
 <?php
 namespace Dva\Hotels\core;
 
-use Dva\Hotels\Core\SendMailSmtpClass;
-use Dva\Hotels\Controller\GAdsController;
+use Dva\Hotels\core\SendMailSmtpClass;
 
 	class EMailPost
 	{
