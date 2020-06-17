@@ -18,7 +18,6 @@ use Dva\Hotels\Controller\GAdsController;
 		<br>Имя: ' . $name . '
 		<br>Номер телефона: ' . $phone . '
 		<br>Почта: ' . $email, $headers); 
-		$gAds = new GAdsController;
-		$ads->addKeyLoger('123', '123');
+
 		}
 	}	
