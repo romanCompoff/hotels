@@ -21,6 +21,12 @@
 	}
 	.navbar-light .navbar-nav .nav-link{
 		color:#3f89aa;
+		font-weight:900;
+	}
+	.navbar-light .navbar-nav .nav-link:hover{
+		/* color:#ec407a; */
+		/* font-size:18px; */
+		border-bottom: solid 4px #3f89aa;
 	}
 	.active>.nav-link{
 		color:#3f89aa;
