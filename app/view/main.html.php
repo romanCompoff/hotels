@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/includes/meta.php'; ?>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -361,7 +362,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 <script>
 function gtag_report_conversion(url) {
   var callback = function () {
-	  alert('conversion');
     if (typeof(url) != 'undefined') {
       window.location = url;
     }
@@ -385,9 +385,7 @@ function SaveZakaz(eventTag) {
 		params += "&recipientName=" + document.all.recipientName.value;
 	}
 		params += "&siteName=<?=$configs['siteName']?>";
-  alert('conversion');
       request = new asyncRequest()
-
       request.open("POST", "/app/router/sendToEMail", false)
       request.setRequestHeader("Content-type",
         "application/x-www-form-urlencoded")
@@ -404,7 +402,6 @@ function SaveZakaz(eventTag) {
             {
 				document.getElementById('modalWindow').innerHTML =
                 this.responseText
- alert('conversion');
             }
             else alert("Письмо не отправлено: нет ответа")
           }
@@ -444,22 +441,17 @@ function SaveZakaz(eventTag) {
         return request
       }
 }
-
 var myPhone = document.getElementsByClassName('conversion'); 
-  var obj;
-[].forEach.call( myPhone, function(el) {
+	[].forEach.call( myPhone, function(el) {
 	el.onclick = () => toSend(el);
-});
-
+	});
 function toSend(el){
 
-		SaveZakaz(el.tagName);
-		gtag_report_conversion();
-		
-		return false;
-   
+	SaveZakaz(el.tagName);
+	gtag_report_conversion();
+	console.log('conversion');
+return false;
 }
-
 </script>
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/includes/metrica.php'; ?>
   </body>
