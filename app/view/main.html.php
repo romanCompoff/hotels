@@ -1,8 +1,5 @@
+<!DOCTYPE html>
 <html>
-
-
-<!doctype html>
-<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -159,7 +156,7 @@
       <div class="modal-body">
 
  
-        <form  action = "#" onsubmit = "SaveZakaz()" method = "post" enctype="multipart/form-data" novalidate="">
+        <form id = "modalWindow" action = "#" onsubmit = "SaveZakaz()" method = "post" enctype="multipart/form-data" novalidate="">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Ваше имя:</label>
             <input type="text" class="form-control" id="recipientName" name="recipientName">
@@ -168,10 +165,10 @@
             <label for="message-text" class="col-form-label">Номер телефона:</label>
 			<input type="text" class="form-control" id="phoneText" name="phoneText">
           </div>
-          <div class="form-group">
+          <!--<div class="form-group">
             <label for="message-text" class="col-form-label">Почта:</label>
 			<input type="text" class="form-control" id="messageText" name="messageText">
-          </div>
+          </div>-->
         
       </div>
       <div class="modal-footer">
@@ -349,51 +346,121 @@
 </div>
 </div>
 </div>
+<!-- Global site tag (gtag.js) - Google Ads: 616186699 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-616186699"></script>
 <script>
-function SaveZakaz() {
-res = "/app/router/sendToEMail?phoneText=" + document.all.phoneText.value;
-res = res + "&messageText=" + document.all.messageText.value;
-res = res + "&recipientName=" + document.all.recipientName.value;
-res +="&utm_term=<?=$_GET['utm_term']?>";
-res += "&utm_campaign=<?=$_GET['utm_campaign']?>";
-res += "&utm_content=<?=$_GET['utm_content']?>";
-if(document.all.phoneText.value){
-var xhr = new XMLHttpRequest();
-xhr.open('GET', res);
-xhr.send();
-return res;
-}}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-616186699');
+</script>
+
+<!-- Event snippet for Начало оформления покупки conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+	  alert('conversion');
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-616186699/AkvjCLXy4NoBEMuG6aUC',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
+<script>
+function SaveZakaz(eventTag) {
+	if(eventTag == 'A'){
+		params = "phoneText=Исходящий Звонок"
+	}else{
+	
+		params  = "phoneText="+document.all.phoneText.value;
+		// params += "&messageText=" + document.all.messageText.value;
+		params += "&recipientName=" + document.all.recipientName.value;
+	}
+		params += "&siteName=<?=$configs['siteName']?>";
+  alert('conversion');
+      request = new asyncRequest()
+
+      request.open("POST", "/app/router/sendToEMail", false)
+      request.setRequestHeader("Content-type",
+        "application/x-www-form-urlencoded")
+
+      request.onreadystatechange = function()
+      {
+
+        if (this.readyState == 4)
+        {
+          if (this.status == 200)
+          {
+		
+            if (this.responseText != null)
+            {
+				document.getElementById('modalWindow').innerHTML =
+                this.responseText
+ alert('conversion');
+            }
+            else alert("Письмо не отправлено: нет ответа")
+          }
+          else
+		  {
+			  alert( "Письмо не отправлено: " + this.statusText);
+		  } 			  
+        }
+      }
+
+      request.send(params)
+
+      function asyncRequest()
+      {
+        try
+        {
+          var request = new XMLHttpRequest()
+        }
+        catch(e1)
+        {
+          try
+          {
+            request = new ActiveXObject("Msxml2.XMLHTTP")
+          }
+          catch(e2)
+          {
+            try
+            {
+              request = new ActiveXObject("Microsoft.XMLHTTP")
+            }
+            catch(e3)
+            {
+              request = false
+            }
+          }
+        }
+        return request
+      }
+}
 
 var myPhone = document.getElementsByClassName('conversion'); 
-
+  var obj;
 [].forEach.call( myPhone, function(el) {
-    //вешаем событие
-    el.onclick = function(e) {
-        var res = "/app/router/sendToEMail?phoneText=исходящий-звонок&utm_term=<?=$_GET['utm_term']?>";
-		res += "&utm_campaign=<?=$_GET['utm_campaign']?>";
-		res += "&utm_content=<?=$_GET['utm_content']?>";
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET', res);
-		xhr.send();
-		return res;
-    }
+	el.onclick = () => toSend(el);
 });
 
-</script>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+function toSend(el){
 
-   ym(61844020, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
+		SaveZakaz(el.tagName);
+		gtag_report_conversion();
+		
+		return false;
+   
+}
+
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/61844020" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/includes/metrica.php'; ?>
   </body>
 </html>
