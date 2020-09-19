@@ -1,5 +1,5 @@
 <?=$lastNumber['error']?>
-<form enctype="multipart/form-data" method = "post" action = "/adminConfig.php" class = "myAdmin">
+<form enctype="multipart/form-data" method = "post" action = "/admin/adminConfig.php" class = "myAdmin">
 <div class = "text-left">
 <div>
 <h1>Редактор конфигураций</h1>

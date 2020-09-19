@@ -46,7 +46,7 @@ class BaseModel
 			$stmt->execute([
 			'id' => $id
 		]);
-		$path = sprintf('myFiles/numbers/%s', $id);
+		$path = $_SERVER['DOCUMENT_ROOT'] . sprintf('/myFiles/numbers/%s', $id);
 		$this->RDir($path);
 		}
 			public function deleteArticle($id)
@@ -57,7 +57,7 @@ class BaseModel
 			$stmt->execute([
 			'id' => $id
 		]);
-		$path = sprintf('myFiles/articles/%s', $id);
+		$path = $_SERVER['DOCUMENT_ROOT'] . sprintf('/myFiles/articles/%s', $id);
 		$this->RDir($path);
 		}
 			
