@@ -25,7 +25,7 @@ $imgPathEnd = '" style = "width: 33px; height: 33px;">';
 	echo 'slide4.jpg';
 	echo $imgPathEnd;
 	echo '</td><td>';
-	echo '<a href = "adminArticle.php?admin=list&del=';
+	echo '<a href = "/admin/adminArticle.php?admin=list&del=';
 	echo $hotel[0];
 	echo '">Удалить</a>';
 	echo '</td><td>';

@@ -1,5 +1,5 @@
 <?=$lastNumber['error']?>
-<form enctype="multipart/form-data" method = "post" action = "/adminConfig.php" class = "myAdmin">
+<form enctype="multipart/form-data" method = "post" action = "/admin/adminConfig.php" class = "myAdmin">
 <div class = "text-left">
 <div>
 <h1>Редактор конфигураций</h1>
@@ -53,6 +53,14 @@
 
 <input id = "email" onChange = "showMess('email' , '155', 'строка')" type="text" name="email" value = "<?=$content[12]?>">Почта<br>
 	<div id = "emailDiv">
+	</div>
+
+<input id = "title" onChange = "showMess('title' , '155', 'строка')" type="text" name="title" value = "<?=$content[13]?>">Заголовок (title)<br>
+	<div id = "titleDiv">
+	</div>
+
+<input id = "description" onChange = "showMess('description' , '155', 'строка')" type="text" name="description" value = "<?=$content[14]?>">Описание (description)<br>
+	<div id = "descriptionDiv">
 	</div>
 	
 

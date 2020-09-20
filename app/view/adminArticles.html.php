@@ -1,5 +1,5 @@
 <?=$lastNumber['error']?>
-<form enctype="multipart/form-data" method = "post" action = "/adminArticle.php" class = "myAdmin">
+<form enctype="multipart/form-data" method = "post" action = "/admin/adminArticle.php" class = "myAdmin">
 <div class = "text-left">
 <div>
 <h1>Добавление нового блока</h1>

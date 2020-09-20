@@ -15,7 +15,19 @@ class ConfigController Extends AdminController
 			public function sendForm($post)
 		{
 			$mPost = new ConfigModel(DB::getConnect());
-			$mPost->editConfigs($this->chk($post['siteName']),								$this->chk($post['menu1']),								$this->chk($post['menu2']),								$this->chk($post['phoneNumber']),								$this->chk($post['phoneNumber2']),								$this->chk($post['heading1']),								$this->chk($post['words1']),								$this->chk($post['heading2']),								$this->chk($post['words2']),								$this->chk($post['adress']),								$this->chk($post['email']));
+			$mPost->editConfigs($this->chk($post['siteName']),
+								$this->chk($post['menu1']),
+								$this->chk($post['menu2']),
+								$this->chk($post['phoneNumber']),
+								$this->chk($post['phoneNumber2']),
+								$this->chk($post['heading1']),
+								$this->chk($post['words1']),
+								$this->chk($post['heading2']),
+								$this->chk($post['words2']),
+								$this->chk($post['adress']),
+								$this->chk($post['email']),
+								$this->chk($post['title']),
+								$this->chk($post['description']));
 		
 		}
 }
