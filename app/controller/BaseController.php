@@ -9,6 +9,8 @@ class BaseController
 	protected $title;
 	protected $articles;
 	protected $configs;
+	protected $fb;
+	protected $banner = "/img/banner.jpg";
 	protected $content = "Контент в контроллере";
 
 		protected function myPath($name)
@@ -25,43 +27,88 @@ class BaseController
 		[
 		'content' => $this->content,
 		'articles' => $this->articles,
-		'configs' => $this->configs
+		'configs' => $this->configs,
+		'banner' => $this->banner,
+		'fb' => $this->fb
 		]
 		);
 	}
 	
-	protected function build($template, array $params = [])
+		protected function build($template, array $params = [])
 	{
 
-			ob_start();
-			extract($params);
-
-			include_once($template);
-			return ob_get_clean();
+		ob_start();
+		extract($params);
+		include_once($template);
+		
+		return ob_get_clean();
 
 	}
-			public function myNotice($myNotice)
+
+		public function myNotice($myNotice)
 	{
 		$this->myNotice = $this->build(__DIR__ . '/../views/myNotice.html.php', ['myNotice' => $myNotice]);	
 	}
-			public function allHotels($page)
+
+		public function allHotels($page)
 	{
 		$mPost = new BaseModel(DB::getConnect());
 		$hotelList = $mPost->getHotels();
 		$this->content = $this->build($this->myPath($page), ['content' => $hotelList]);	
 	}
 			
-			public function allArticles($page)
+		public function allArticles($page)
 	{
 		$mPost = new BaseModel(DB::getConnect());
 		$articlesList = $mPost->getArticles();
 		$this->articles = $this->build($this->myPath($page), ['content' => $articlesList]);	
 	}
 			
-			public function allConfigs()
+		public function allConfigs()
 	{
 		$mPost = new BaseModel(DB::getConnect());
 		$this->configs = $mPost->getConfigs();
+	}
+
+			public function allFeedbacks($p = 'feedBackViews/feedBack')
+	{
+		$mPost = new BaseModel(DB::getConnect());
+		$FBList = $mPost->getFB();
+		$this->fb = $this->build($this->myPath($p), ['feed' => $FBList]);	
+	}
+
+		public function allPrev($admin = false)
+	{
+		$mPost = new BaseModel(DB::getConnect());
+		$prevList = $mPost->getPrev();
+		if($admin==true){
+			return $prevList;
+		}
+		else{
+		$this->content = $this->build($this->myPath('prevView/allPrev'), ['content' => $prevList]);
+		}
+	}
+	
+	 		public function getOne($name)
+	{
+		$mPost = new BaseModel(DB::getConnect());
+		$OneArticle = $mPost->getByName($name);
+		$mPost = new BaseModel(DB::getConnect());
+		$this->configs = $mPost->getConfigs();
+		$this->configs['heading1'] = $this->configs['heading2'] = $OneArticle['rusName'];
+		// $this->configs['heading2'] = '';
+		// $this->configs['words2'] = '';
+		$this->configs['words1'] = $this->configs['words2'] = $OneArticle['content'];
+		$this->banner = sprintf("/img/img-preview/%s.jpg",$OneArticle['hotelName']);
+
+		
+		
+		
+		// $hotelList = $mPost->getHotels();
+		// $this->content = $this->build($this->myPath('allHotels'), ['content' => $hotelList]);	
+		// $articlesList = $mPost->getArticles();
+		// $this->articles = $this->build($this->myPath('articles'), ['content' => $articlesList]);	
+		return $OneArticle;
 	}
 
 }
