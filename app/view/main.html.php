@@ -311,6 +311,8 @@
 		
 	</div>
 </div>-->
+<!-- отзывы-->
+<? echo $fb; ?>
 
 <div class = "container" style = "padding: 33px 0;">
 <div class = "text-center" style = "padding: 33px 0;">

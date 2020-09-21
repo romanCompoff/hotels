@@ -6,25 +6,25 @@ use Dva\Hotels\Core\DB;
 
 class AdminController Extends BaseController
 {
-			public function outputForm()
-		{
-			$this->content = $this->build($this->myPath('admin'), []);
-		}
-		
+		public function outputForm()
+	{
+		$this->content = $this->build($this->myPath('admin'), []);
+	}
+	
 		public function outputFormToArticles()
-		{
-			$this->content = $this->build($this->myPath('adminArticles'), []);
-		}
-		
-			public function render()
-		{
-			echo $this->build(
-			$this->myPath('mainAdmin'),
-			[
-			'content' => $this->content,
-			'articles' => $this->articles
-			]);
-		}
+	{
+		$this->content = $this->build($this->myPath('adminArticles'), []);
+	}
+	
+		public function render()
+	{
+		echo $this->build(
+		$this->myPath('mainAdmin'),
+		[
+		'content' => $this->content,
+		'articles' => $this->articles
+		]);
+	}
 
 		public function addHotels($post)
 	{
@@ -44,25 +44,39 @@ class AdminController Extends BaseController
 		return $lastId;
 	}
 	
-			public function delHotel($id)
+		public function delHotel($id)
 	{
 			
-			$mPost = new baseModel(DB::getConnect());
-			$mPost->deletePost($id);
+		$mPost = new baseModel(DB::getConnect());
+		$mPost->deletePost($id);
 	}			
 	
-			public function delArticle($id)
+		public function delArticle($id)
 	{
 			
-			$mPost = new baseModel(DB::getConnect());
-			$mPost->deleteArticle($id);
+		$mPost = new baseModel(DB::getConnect());
+		$mPost->deleteArticle($id);
 	}
 	
-			public function chk($word)
+		public function chk($word)
 	{
-			$word = htmlspecialchars($word);
-			return $word;
+		$word = htmlspecialchars($word);
+		return $word;
 	}
 
+		public function fUpdate($old, $new, $dir)
+	{
+		$new = $_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $new);
+		move_uploaded_file($old, $new);
+	}
 
+		protected function removeImg($name, $dir)
+	{
+		if(file_exists( $_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $name))){
+		unlink($_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $name));
+				}
+				// else{
+					// echo  $_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $name);
+				// }
+		}
 }

@@ -3,7 +3,7 @@ session_start();
 use Dva\Hotels\controller\ConfigController;
 use Dva\Hotels\model\ConfigModel;
 
-include $_SERVER['DOCUMENT_ROOT'] .'vendor/autoload.php';
+include $_SERVER['DOCUMENT_ROOT'] .'/vendor/autoload.php';
 	
 	
 	function isAuth(){

@@ -115,4 +115,41 @@ class BaseModel
    }
  }
 }
+
+	public function deleteFB($id)
+		{
+			$sql = sprintf('DELETE FROM %s WHERE id = :id', 'feedbacks');
+
+			$stmt = $this->db->prepare($sql);
+			$stmt->execute([
+			'id' => $id
+		]);
+
+		}
+		
+		function getFB()
+	{
+		$sql = sprintf('SELECT * FROM feedbacks');
+		$stmt = $this->db->query($sql);
+		return $stmt->fetchAll();
+	}
+
+		public function getPrev()
+	{
+		$sql = sprintf('SELECT * FROM hotelsheader');
+		$stmt = $this->db->query($sql);
+		return $stmt->fetchAll();
+	}
+	
+			public function getByName($name)
+		{
+			$sql = sprintf('SELECT * FROM %s WHERE hotelName = :name', 'hotelsheader');
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute([
+			'name' => $name
+		]);
+		// var_dump($name);
+				return $stmt->fetch();
+
+		}
 }
