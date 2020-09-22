@@ -18,31 +18,13 @@ class FeedbackModel Extends BaseModel
 		return $this->db->lastInsertId();
 	}
 
-		public function outputForm()
+	public function deleteFB($id)
 	{
-			// $mPost = new ConfigModel(DB::getConnect());
-			// $configsList = $mPost->getConfigs();
-		$this->content = $this->build($this->myPath('feedBackViews/feedBackForm'), []);
-	}
-		
-/*	public function editConfigs($siteName, $menu1)
-	{
-		$sql = sprintf("UPDATE %s SET siteName = :siteName, menu1 = :menu1, menu2 = :menu2, phoneNumber = :phoneNumber, phoneNumber2 = :phoneNumber2, heading1 = :heading1, words1 = :words1, heading2 = :heading2, words2 = :words2, adress = :adress, email = :email WHERE id = '1'", $this->table);
+		$sql = sprintf('DELETE FROM %s WHERE id = :id', 'feedbacks');
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute([
-		'siteName' => $siteName,
-		'menu1' => $menu1,
-		'menu2' => $menu2,
-		'phoneNumber' => $phoneNumber,
-		'phoneNumber2' => $phoneNumber2,
-		'heading1' => $heading1,
-		'words1' => $words1,
-		'heading2' => $heading2,
-		'words2' => $words2,
-		'adress' => $adress,
-		'email' => $email
+		'id' => $id
 		]);
-		return $stmt->fetch();
-	}*/
-	
+	}
+
 }

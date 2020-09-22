@@ -116,16 +116,7 @@ class BaseModel
  }
 }
 
-	public function deleteFB($id)
-		{
-			$sql = sprintf('DELETE FROM %s WHERE id = :id', 'feedbacks');
 
-			$stmt = $this->db->prepare($sql);
-			$stmt->execute([
-			'id' => $id
-		]);
-
-		}
 		
 		function getFB()
 	{

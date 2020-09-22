@@ -6,21 +6,27 @@ use Dva\Hotels\Core\DB;
 
 class FeedbacksController Extends AdminController
 {
-		public function addFeedback($text, $name)
-		{
-			$mPost = new FeedbackModel(DB::getConnect());
-			$fb = $mPost->addFeedback($text, $name);
-			
-			return $fb;
-
-		}
+	//Добавление отзыва в базу
+	public function addFeedback($text, $name)
+	{
+		$mPost = new FeedbackModel(DB::getConnect());
+		$fb = $mPost->addFeedback($text, $name);
 		
-
-
-		public function outputForm()
-		{
-			// $mPost = new ConfigModel(DB::getConnect());
-			// $configsList = $mPost->getConfigs();
-			$this->content = $this->build($this->myPath('feedBackViews/feedBackForm'), []);
-		}
+		return $fb;
+	}
+	//Удаление отзыва из базы
+		public function delFB($id)
+	{
+			
+		$mPost = new FeedbackModel(DB::getConnect());
+		$mPost->deleteFB($id);
+		$this->err = $this->removeImg($id, 'img-feedbacks');
+	}		
+	//вывод формы для добавления в админке
+	public function outputForm()
+	{
+		// $mPost = new FeedbackModel(DB::getConnect());
+		// $feed = $mPost->getFb();
+		$this->content = $this->build($this->myPath('feedBackViews/feedBackForm'), []);
+	}
 }

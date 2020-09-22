@@ -70,11 +70,11 @@ class BaseController
 		$this->configs = $mPost->getConfigs();
 	}
 
-			public function allFeedbacks($p = 'feedBackViews/feedBack')
+		public function allFeedbacks($path = 'feedBackViews/feedBack')
 	{
 		$mPost = new BaseModel(DB::getConnect());
 		$FBList = $mPost->getFB();
-		$this->fb = $this->build($this->myPath($p), ['feed' => $FBList]);	
+		$this->fb = $this->build($this->myPath($path), ['feed' => $FBList]);	
 	}
 
 		public function allPrev($admin = false)

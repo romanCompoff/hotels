@@ -1,6 +1,6 @@
 <?
 use Dva\Hotels\controller\FeedbacksController;
-use Dva\Hotels\model\BaseModel;
+use Dva\Hotels\model\FeedbackModel;
 
 include $_SERVER['DOCUMENT_ROOT'] .'/vendor/autoload.php';
 	
@@ -26,5 +26,3 @@ if(!empty($_POST)){
 $main = $controller->outputForm();
 $feedbacks = $controller->allFeedbacks('feedBackViews/FBAdmin', '');
 $controller->render();
-
-// var_dump($c);

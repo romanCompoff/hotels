@@ -42,6 +42,8 @@
 								<a class="dropdown-item" href="/admin/admin.php">Добавление отеля</a>
 								<a class="dropdown-item" href="/admin/adminArticle.php">Добавление блока</a>
 								<a class="dropdown-item" href="/admin/adminConfig.php">Конфигурации</a>
+								<a class="dropdown-item" href="/admin/feedBacks.php">Отзыв</a>
+								<a class="dropdown-item" href="/admin/prevew.php">Превью</a>
 								<div class="dropdown-divider">
 								</div>
 								
@@ -68,8 +70,10 @@
 
 <div class = "row">
 		<div class = "col-12 col-sm-12 col-md-12 col-lg-12">
+			<?=$err?>
 			<?=$content?>
 			<?=$articles?>
+			<?=$fb?>
 		</div>
 </div>
 <div class = "row">
@@ -78,15 +82,6 @@
 		</div>
 </div>
 
-<style>
-.create_site{
-	margin-top:33px;
-	opacity:0.5;
-}
-.create_site:hover{
-	opacity:1;
-}
-</style>
 
 </body>
 </html>

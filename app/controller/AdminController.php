@@ -6,6 +6,8 @@ use Dva\Hotels\Core\DB;
 
 class AdminController Extends BaseController
 {
+	protected $err;
+
 		public function outputForm()
 	{
 		$this->content = $this->build($this->myPath('admin'), []);
@@ -21,8 +23,10 @@ class AdminController Extends BaseController
 		echo $this->build(
 		$this->myPath('mainAdmin'),
 		[
+		'err' => $this->err,
 		'content' => $this->content,
-		'articles' => $this->articles
+		'articles' => $this->articles,
+		'fb' => $this->fb
 		]);
 	}
 
@@ -73,10 +77,11 @@ class AdminController Extends BaseController
 		protected function removeImg($name, $dir)
 	{
 		if(file_exists( $_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $name))){
-		unlink($_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $name));
-				}
-				// else{
-					// echo  $_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $name);
-				// }
+			unlink($_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $name));
+			return 'Изображение успешно удалено';
+		}else{
+			return 'Неправильный путь к изображению';
+		}
+		
 		}
 }
