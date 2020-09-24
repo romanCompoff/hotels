@@ -13,6 +13,14 @@ class BaseModel
 		$this->db = $db;
 		$this->db->exec('SET NAMES UTF8');
 	}
+
+//общий метод для получения всех данных таблицы
+	function getAll()
+	{
+		$sql = sprintf('SELECT * FROM %s', $this->table);
+		$stmt = $this->db->query($sql);
+		return $stmt->fetchAll();
+	}
 		
 	function getConfigs()
 	{

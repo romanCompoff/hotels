@@ -9,7 +9,6 @@ class IndexController Extends BaseController
 	public function indexAction()
 	{
 		$mPost = new BaseModel(DB::getConnect());
-		$hotelList = $mPost->getHotels();
-		return $hotelList;
+		$hotelList = $mPost->getAll();
 	}
 }

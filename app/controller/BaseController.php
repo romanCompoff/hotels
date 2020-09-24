@@ -13,16 +13,24 @@ class BaseController
 	protected $banner = "/img/banner.jpg";
 	protected $content = "Контент в контроллере";
 
+	protected function getAll($model)
+	{
+		$mPost = new $model(DB::getConnect());
+		$res = $mPost->getAll();
+		return $res;
+	}
+
 		protected function myPath($name)
-		{
+	{
 		$fullPath = sprintf('/../view/%s.html.php', $name);
 		$fullPath = __DIR__ . $fullPath;
 		return $fullPath;
 	}
+
 	
 		public function render()
 	{
-	echo $this->build(
+		echo $this->build(
 		$this->myPath('main'),
 		[
 		'content' => $this->content,
@@ -36,7 +44,6 @@ class BaseController
 	
 		protected function build($template, array $params = [])
 	{
-
 		ob_start();
 		extract($params);
 		include_once($template);
@@ -89,26 +96,24 @@ class BaseController
 		}
 	}
 	
-	 		public function getOne($name)
+	 	public function getOne($name)
 	{
 		$mPost = new BaseModel(DB::getConnect());
 		$OneArticle = $mPost->getByName($name);
-		$mPost = new BaseModel(DB::getConnect());
 		$this->configs = $mPost->getConfigs();
 		$this->configs['heading1'] = $this->configs['heading2'] = $OneArticle['rusName'];
-		// $this->configs['heading2'] = '';
-		// $this->configs['words2'] = '';
 		$this->configs['words1'] = $this->configs['words2'] = $OneArticle['content'];
 		$this->banner = sprintf("/img/img-preview/%s.jpg",$OneArticle['hotelName']);
-
-		
-		
-		
-		// $hotelList = $mPost->getHotels();
-		// $this->content = $this->build($this->myPath('allHotels'), ['content' => $hotelList]);	
-		// $articlesList = $mPost->getArticles();
-		// $this->articles = $this->build($this->myPath('articles'), ['content' => $articlesList]);	
 		return $OneArticle;
+	}
+
+
+	public function allFb($p = 'feedBackViews/feedBack')
+	{
+		$feed = $this->getAll('feedbackModel');
+
+		var_dump($feed);
+		$this->fb = $this->build($this->myPath($p), ['feed' => $FBList]);	
 	}
 
 }

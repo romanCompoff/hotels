@@ -25,8 +25,7 @@ class FeedbacksController Extends AdminController
 	//вывод формы для добавления в админке
 	public function outputForm()
 	{
-		// $mPost = new FeedbackModel(DB::getConnect());
-		// $feed = $mPost->getFb();
 		$this->content = $this->build($this->myPath('feedBackViews/feedBackForm'), []);
 	}
+
 }

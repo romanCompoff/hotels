@@ -11,6 +11,7 @@ $controller = new BaseController;
 $mainArticles = $controller->allArticles('articles');
 $main = $controller->allHotels('allHotels');
 $config = $controller->allConfigs();
+// $fb = $controller->allFb();
 $controller->render();
 // $ads = new GAdsController;
 // $ads->addKeyLoger();

@@ -158,7 +158,7 @@
       <div class="modal-body">
 
  
-        <form id = "modalWindow" action = "#" onsubmit = "SaveZakaz()" method = "post" enctype="multipart/form-data" novalidate="">
+        <form id = "modalWindow" action = "#" onsubmit = "SaveZakaz(); return false" method = "post" enctype="multipart/form-data" novalidate="">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Ваше имя:</label>
             <input type="text" class="form-control" id="recipientName" name="recipientName">
@@ -322,6 +322,7 @@
 <button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
 </div>
 <div class = "row justify-content-between no-gutters">
+  <?=$fb?>
 <div class = "col-12 col-sm-12 col-md-6 col-lg-6"> 
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2868952.2528884467!2d32.28820361308605!3d45.39499658567419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1585585090694!5m2!1sru!2sru" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 </div>
@@ -443,6 +444,7 @@ function SaveZakaz(eventTag) {
         }
         return request
       }
+    return false
 }
 var myPhone = document.getElementsByClassName('conversion'); 
 	[].forEach.call( myPhone, function(el) {
@@ -453,7 +455,7 @@ function toSend(el){
 	SaveZakaz(el.tagName);
 	gtag_report_conversion();
 	console.log('conversion');
-return false;
+return false
 }
 </script>
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/includes/metrica.php'; ?>
