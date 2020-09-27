@@ -13,11 +13,12 @@ class BaseController
 	protected $banner = "/img/banner.jpg";
 	protected $content = "Контент в контроллере";
 
-	protected function getAll($model)
+	public  function getAll($dataForm)
 	{
-		$mPost = new $model(DB::getConnect());
-		$res = $mPost->getAll();
+		$mPost = new BaseModel(DB::getConnect());
+		$res = $mPost->getAll($dataForm);
 		return $res;
+
 	}
 
 		protected function myPath($name)

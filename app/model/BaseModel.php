@@ -15,9 +15,9 @@ class BaseModel
 	}
 
 //общий метод для получения всех данных таблицы
-	function getAll()
+	function getAll($tables)
 	{
-		$sql = sprintf('SELECT * FROM %s', $this->table);
+		$sql = sprintf('SELECT * FROM %s', $tables);
 		$stmt = $this->db->query($sql);
 		return $stmt->fetchAll();
 	}
