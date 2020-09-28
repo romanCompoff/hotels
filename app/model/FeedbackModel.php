@@ -12,9 +12,11 @@ class FeedbackModel Extends BaseModel
 	{	
 		$sql = sprintf("INSERT INTO %s (text, userName) VALUES (:text, :userName)", $this->table);
 		$stmt = $this->db->prepare($sql);
-		$stmt->execute(['text' => $text,
-		'userName' => $userName
-		]);
+		$stmt->execute(
+			[
+			'text' => $text,
+			'userName' => $userName
+			]);
 		return $this->db->lastInsertId();
 	}
 

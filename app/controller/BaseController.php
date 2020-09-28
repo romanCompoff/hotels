@@ -3,17 +3,23 @@ namespace Dva\Hotels\Controller;
 
 use Dva\Hotels\Model\BaseModel;
 use Dva\Hotels\Core\DB;
+use Dva\Hotels\Core\Request;
 
 class BaseController
 {
 	protected $title;
 	protected $articles;
 	protected $configs;
-	protected $fb;
+	protected $feedbacks;
 	protected $banner = "/img/banner.jpg";
-	protected $content = "Контент в контроллере";
+	protected $content;
 
-	public  function getAll($dataForm)
+	public function __construct(Request $request)
+	{
+		$this->request = $request;
+	}
+
+	private  function getAll($dataForm)
 	{
 		$mPost = new BaseModel(DB::getConnect());
 		$res = $mPost->getAll($dataForm);
@@ -21,7 +27,16 @@ class BaseController
 
 	}
 
-		protected function myPath($name)
+	public function renderAllBlocks($dataForm)
+	{
+		$res = $this->getAll($dataForm);
+		$this->$dataForm = $this->build($this->myPath($dataForm .'/'.$dataForm), ['content' => $res]);
+	}
+
+
+
+
+	protected function myPath($name)
 	{
 		$fullPath = sprintf('/../view/%s.html.php', $name);
 		$fullPath = __DIR__ . $fullPath;
@@ -38,7 +53,7 @@ class BaseController
 		'articles' => $this->articles,
 		'configs' => $this->configs,
 		'banner' => $this->banner,
-		'fb' => $this->fb
+		'fb' => $this->feedbacks
 		]
 		);
 	}
@@ -78,11 +93,11 @@ class BaseController
 		$this->configs = $mPost->getConfigs();
 	}
 
-		public function allFeedbacks($path = 'feedBackViews/feedBack')
+		public function allFeedbacks($path = 'feedbacks/feedbacks')
 	{
 		$mPost = new BaseModel(DB::getConnect());
 		$FBList = $mPost->getFB();
-		$this->fb = $this->build($this->myPath($path), ['feed' => $FBList]);	
+		$this->feedbacks = $this->build($this->myPath($path), ['feed' => $FBList]);	
 	}
 
 		public function allPrev($admin = false)
@@ -109,12 +124,12 @@ class BaseController
 	}
 
 
-	public function allFb($p = 'feedBackViews/feedBack')
+	public function allFb($p = 'feedbacks/feedbacks')
 	{
 		$feed = $this->getAll('feedbackModel');
 
 		var_dump($feed);
-		$this->fb = $this->build($this->myPath($p), ['feed' => $FBList]);	
+		$this->feedbacks = $this->build($this->myPath($p), ['feed' => $FBList]);	
 	}
 
 }

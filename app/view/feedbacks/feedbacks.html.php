@@ -1,6 +1,6 @@
 <div class="owl-carousel owl-theme card-deck mx-0">
 
-  <?php foreach($feed as $f):?>
+  <?php foreach($content as $f):?>
   
   <div class="card" style = "height:450px;">
   <div class="text-center px-5">

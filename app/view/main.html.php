@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="<?=$configs['description']?>">
 	<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/includes/meta.php'; ?>
-
-    <!-- Bootstrap CSS -->
+	
+	<!--owl carousel-->
+    <link rel="stylesheet" href="oc/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="oc/assets/owl.theme.default.min.css">
+    
+	<!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/myStyle.css">
-   <!-- Optional JavaScript -->
+	
+	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -312,8 +317,9 @@
 	</div>
 </div>-->
 <!-- отзывы-->
+<div class = "container" style = "padding: 33px 0;">
 <? echo $fb; ?>
-
+</div>
 <div class = "container" style = "padding: 33px 0;">
 <div class = "text-center" style = "padding: 33px 0;">
 <p>
@@ -322,7 +328,7 @@
 <button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">ЗАКАЗАТЬ</button>
 </div>
 <div class = "row justify-content-between no-gutters">
-  <?=$fb?>
+
 <div class = "col-12 col-sm-12 col-md-6 col-lg-6"> 
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2868952.2528884467!2d32.28820361308605!3d45.39499658567419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1585585090694!5m2!1sru!2sru" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 </div>
