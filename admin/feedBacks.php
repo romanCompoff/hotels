@@ -2,6 +2,7 @@
 use Dva\Hotels\controller\FeedbacksController;
 use Dva\Hotels\model\FeedbackModel;
 
+include_once 'login.php'; 
 include $_SERVER['DOCUMENT_ROOT'] .'/vendor/autoload.php';
 	
 

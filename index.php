@@ -10,6 +10,8 @@ include 'vendor/autoload.php';
 
 $controller = new ActiveRecordParentController;
 
+
+
 // var_dump($controller);
 
 // $request = new Request($_GET, $_POST, $_SERVER, $_COOKIE, $_FILES, $_SESSION);
@@ -23,10 +25,13 @@ $controller = new ActiveRecordParentController;
 // $config = $controller->allConfigs();
 
 
+$controller->getConfig();
+$controller->renderAllBlocks('feedbacks');
+$controller->renderAllBlocks('articles');
+$controller->renderAllBlocks('allhotels');
 
-$res1 = $controller->renderAllBlocks('feedbacks');
 
-echo $res1;
+// echo $res1;
 
 // $fb = $controller->allFb();
 $controller->render();

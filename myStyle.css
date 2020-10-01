@@ -2,6 +2,9 @@
     font-family: adana;
     src: local(adana), url(/fonts/7834.ttf);
    }
+#navbarSupportedContent{
+	text-align:center;
+}
 .navbar-light .navbar-brand{
 	font-family:'adana';
 	font-size:48px;
@@ -23,9 +26,12 @@
 	font-weight:900;
 	}
 .navbar-light .navbar-nav .nav-link:hover{
+	color:	#356d86;
+	}
+.navbar-light .navbar-nav .nav-link:hover{
 	/* color:#ec407a; */
 	/* font-size:18px; */
-	border-bottom: solid 4px #3f89aa;
+	border-bottom: solid 1px #3f89aa;
 	}
 .active>.nav-link{
 	color:#3f89aa;
@@ -142,6 +148,9 @@ p {
 	left: 3%;
 	right: 3%;
 	top: 3%;
+}
+#navbarSupportedContent .btn-success{
+	display:none;
 }
 }
 .btn-success:not(:disabled):not(.disabled).active, .btn-success:not(:disabled):not(.disabled):active, .show>.btn-success.dropdown-toggle{

@@ -56,11 +56,7 @@ class ActiveRecordParentModel
         $qwe = static::getTableName();
         $db = DB::getConnect();
         $sql = sprintf('SELECT * FROM %s', $tables);
-        $stmt = $db->query($sql, $db::FETCH_CLASS, static::class, []);
-        $class = $db::FETCH_CLASS;
-        // var_dump($class);
-        var_dump($stmt->fetchAll());
-        // die;
+        $stmt = $db->query($sql);
 
         return $stmt->fetchAll();
 
@@ -91,5 +87,11 @@ class ActiveRecordParentModel
             static::class
         );
         return $entities ? $entities[0] : null;
+
+
+
+             
+
+        // return $stmt->fetchObject(static::class);
     }
 }
