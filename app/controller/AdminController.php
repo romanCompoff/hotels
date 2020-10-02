@@ -4,13 +4,18 @@ namespace Dva\Hotels\Controller;
 use Dva\Hotels\Model\BaseModel;
 use Dva\Hotels\Core\DB;
 
-class AdminController Extends BaseController
+class AdminController Extends ActiveRecordParentController
 {
 	protected $err;
 
-		public function outputForm()
+	public function mainAdmin()
 	{
-		$this->content = $this->build($this->myPath('admin'), []);
+		$this->content = $this->build($this->myPath('admin/admin'), []);
+	}
+
+	public function outputForm()
+	{
+		$this->content = $this->build($this->myPath('allhotels/adminHotels'), []);
 	}
 	
 		public function outputFormToArticles()
