@@ -18,22 +18,11 @@ $controller = new ActiveRecordParentController;
 
 // $controller = new BaseController($request);
 
-
-
-// $mainArticles = $controller->allArticles('articles');
-// $main = $controller->allHotels('allHotels');
-// $config = $controller->allConfigs();
-
-
 $controller->getConfig();
 $controller->renderAllBlocks('feedbacks');
 $controller->renderAllBlocks('articles');
-$controller->renderAllBlocks('allhotels');
+$controller->renderAllBlocks('allhotels') ;
 
-
-// echo $res1;
-
-// $fb = $controller->allFb();
 $controller->render();
 // $ads = new GAdsController;
 // $ads->addKeyLoger();

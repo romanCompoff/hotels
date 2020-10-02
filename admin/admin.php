@@ -1,4 +1,4 @@
-<?php
+ <?php
 use Dva\Hotels\Controller\AdminController;
 use Dva\Hotels\Core\Auth;
 

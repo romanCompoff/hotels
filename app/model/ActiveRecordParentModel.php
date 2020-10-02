@@ -15,8 +15,6 @@ class ActiveRecordParentModel
     /** @var string */
     private $userName;
 
-    private $table = "feedbacks";
-
 
     public function __set($name, $value)
     {
@@ -33,42 +31,18 @@ class ActiveRecordParentModel
     }
 
     /**
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getText(): string
-    {
-        return $this->text;
-    }
-
-    /**
      * @return Article[]
      */
     public static function getAll($tables): array
     {
-        $qwe = static::getTableName();
         $db = DB::getConnect();
         $sql = sprintf('SELECT * FROM %s', $tables);
         $stmt = $db->query($sql);
 
         return $stmt->fetchAll();
-
-
     }
 
-    protected function getDB()
-    {
-        return DB::getConnect();
-    }
-
-    private function underscoreToCamelCase(string $source): string
+    protected function underscoreToCamelCase(string $source): string
     {
         return lcfirst(str_replace('_', '', ucwords($source, '_')));
     }
@@ -78,7 +52,7 @@ class ActiveRecordParentModel
         return 'articles';
     }
 
-        public static function getById(int $id): ?self
+    public static function getById(int $id): ?self
     {
         $db = new Db();
         $entities = $db->query(

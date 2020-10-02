@@ -76,6 +76,7 @@
 			<?=$content?>
 			<?=$articles?>
 			<?=$fb?>
+			<?=$listForDel?>
 		</div>
 </div>
 <div class = "row">

@@ -3,30 +3,37 @@ namespace Dva\Hotels\Model;
 
 use Dva\Hotels\core\DB;
 
-class FeedbackModel Extends BaseModel
+class FeedbackModel Extends AdminModel
 {
-	protected $table = 'feedbacks';
+	private $text;
+	private $userName;
+
+	public function getText()
+	{
+		return $this->text;
+	}
 	
+	public function getUserName()
+	{
+		return $this->userName;
+	}
 	
-	public function addFeedback($text, $userName)
+	public function addFeedback(string $text, string $userName)
 	{	
-		$sql = sprintf("INSERT INTO %s (text, userName) VALUES (:text, :userName)", $this->table);
-		$stmt = $this->db->prepare($sql);
+		$db = DB::getConnect();
+		$sql = sprintf("INSERT INTO %s (text, userName) VALUES (:text, :userName)", static::getTableName());
+		$stmt = $db->prepare($sql);
 		$stmt->execute(
 			[
 			'text' => $text,
 			'userName' => $userName
 			]);
-		return $this->db->lastInsertId();
+		return $db->lastInsertId();
 	}
-
-	public function deleteFB($id)
-	{
-		$sql = sprintf('DELETE FROM %s WHERE id = :id', 'feedbacks');
-		$stmt = $this->db->prepare($sql);
-		$stmt->execute([
-		'id' => $id
-		]);
-	}
+	
+	protected static function getTableName(): string 
+    {
+        return 'feedbacks';
+    }
 
 }
