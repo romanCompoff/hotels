@@ -5,7 +5,7 @@ namespace Dva\Hotels\Controller;
 use Dva\Hotels\Model\ActiveRecordParentModel;
 
 
-class ActiveRecordParentController
+abstract class ActiveRecordParentController
 {
     //* Таблица с конфигами */
     const CONFIGS = 'site_configs';
@@ -71,5 +71,11 @@ class ActiveRecordParentController
         ]
         );
     }
+
+    public function getById(int $id)
+   {
+        $res = ActiveRecordParentModel::getById($id);
+        return $res;
+   }
 
 }

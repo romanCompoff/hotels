@@ -1,14 +1,13 @@
 <?php
 
-use Dva\Hotels\controller\BaseController;
-use Dva\Hotels\Controller\ActiveRecordParentController;
+use Dva\Hotels\controller\IndexController;
 use Dva\Hotels\core\Request;
 
 
 include 'vendor/autoload.php';
 
 
-$controller = new ActiveRecordParentController;
+$controller = new IndexController;
 
 
 

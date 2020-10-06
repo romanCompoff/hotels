@@ -4,7 +4,7 @@ namespace Dva\Hotels\Model;
 
 use Dva\Hotels\Core\DB;
 
-class ActiveRecordParentModel
+abstract class ActiveRecordParentModel
 {
     /** @var int */
     private $id;
@@ -54,18 +54,13 @@ class ActiveRecordParentModel
 
     public static function getById(int $id): ?self
     {
-        $db = new Db();
-        $entities = $db->query(
-            'SELECT * FROM `' . static::getTableName() . '` WHERE id=:id;',
-            [':id' => $id],
-            static::class
-        );
-        return $entities ? $entities[0] : null;
-
-
-
-             
-
-        // return $stmt->fetchObject(static::class);
+        $db = DB::getConnect();
+        $sql = sprintf('SELECT * FROM %s WHERE id = :id', static::getTableName());
+        $stmt = $db->prepare($sql);
+        $stmt->execute([
+            'id' => $id
+        ]);
+        $res = $stmt->fetchObject(static::class);
+        return $res ? $res : null;
     }
 }

@@ -1,14 +1,8 @@
 <?php
 namespace Dva\Hotels\Controller;
 
-use Dva\Hotels\Model\BaseModel;
-use Dva\Hotels\Core\DB;
+use Dva\Hotels\Model\IndexModel;
 
-class IndexController Extends BaseController
-{
-	public function indexAction()
-	{
-		$mPost = new BaseModel(DB::getConnect());
-		$hotelList = $mPost->getAll();
-	}
-}
+
+class IndexController Extends ActiveRecordParentController
+{}
