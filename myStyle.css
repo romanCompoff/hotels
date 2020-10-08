@@ -125,10 +125,20 @@ body{
 }
 #mainAdminDiv{
 	min-height: 150%;
-	background-color: 8CBDDD;
+	background-color: #dfe6eb;
 }
 
-
+form#configForm input{
+	margin:12px;
+}
+form#configForm textarea{
+	margin:12px;
+	width:80%;
+	height: auto;	
+}
+form#configForm{
+	margin-left:10%;
+}
 
 @media screen and (max-width: 650px){
 	.img-wrap p{

@@ -9,7 +9,5 @@ $Login  = new Auth;
 $Login->login();
 	
 $controller = new AdminController;
-
 $main = $controller->mainAdmin();
-
 $controller->render();

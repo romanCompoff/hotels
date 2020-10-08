@@ -2,6 +2,7 @@
 namespace Dva\Hotels\Controller;
 
 use Dva\Hotels\Model\BaseModel;
+use Dva\Hotels\Core\Validator;
 
 
 class AdminController Extends ActiveRecordParentController
@@ -106,5 +107,15 @@ class AdminController Extends ActiveRecordParentController
 		}else{
 			return 'Неправильный путь к изображению';
 		}	
+	}
+
+	public function setErr($words)
+	{
+		$this->err .= sprintf( "<span class = 'alert alert-danger'>%s</span>", $words );
+	}	
+	
+	public function setSuccess($words)
+	{
+		$this->err .= sprintf( "<span class = 'alert alert-success'>%s</span>", $words );
 	}
 }

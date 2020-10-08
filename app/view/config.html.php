@@ -1,44 +1,43 @@
-<?=$lastNumber['error']?>
-<form enctype="multipart/form-data" method = "post" action = "/admin/adminConfig.php" class = "myAdmin">
+<form enctype="multipart/form-data" method = "post" action = "/admin/adminConfig.php" class = "myAdmin" id = "configForm">
 <div class = "text-left">
 <div>
 <h1>Редактор конфигураций</h1>
 </div>
 
-<input id = "siteName" onChange = "showMess('siteName' , '100', 'строка')" type="text" name = "siteName" value = "<?=$content[2]?>">Название сайта<br>
+<input id = "siteName" onChange = "showMess('siteName' , '100', 'строка')" type="text" name = "siteName" value = "<?=$content->getSiteName()?>">Название сайта<br>
 	<div id = "siteNameDiv">
 	</div>
 
-<input id = "menu1" onChange = "showMess('menu1' , '100', 'строка')" type="text" name = "menu1" value = "<?=$content[3]?>">Пункт меню 1<br>
+<input id = "menu1" onChange = "showMess('menu1' , '100', 'строка')" type="text" name = "menu1" value = "<?=$content->getMenu1()?>">Пункт меню 1<br>
 	<div id = "menu1Div">
 	</div>
 
-<input id = "menu2" onChange = "showMess('menu2' , '100', 'строка')" type="text" name = "menu2" value = "<?=$content[4]?>">Пункт меню 2<br>
+<input id = "menu2" onChange = "showMess('menu2' , '100', 'строка')" type="text" name = "menu2" value = "<?=$content->getMenu2()?>">Пункт меню 2<br>
 	<div id = "menu2Div">
 	</div>
 
-<input id = "phoneNumber" onChange = "showMess('phoneNumber' , '20', 'строка')" type="text" name = "phoneNumber" value = "<?=$content[5]?>">Номер телефона<br> 
+<input id = "phoneNumber" onChange = "showMess('phoneNumber' , '20', 'строка')" type="text" name = "phoneNumber" value = "<?=$content->getPhoneNumber()?>">Номер телефона<br> 
 	<div id = "phoneNumberDiv">
 	</div>
 
-<input id = "phoneNumber2" onChange = "showMess('phoneNumber2' , '20', 'строка')" type="text" name = "phoneNumber2" value = "<?=$content[6]?>">Номер телефона 2<br> 
+<input id = "phoneNumber2" onChange = "showMess('phoneNumber2' , '20', 'строка')" type="text" name = "phoneNumber2" value = "<?=$content->getPhoneNumber2()?>">Номер телефона 2<br> 
 	<div id = "phoneNumber2Div">
 	</div>
 	
 	
-<input id = "heading1" onChange = "showMess('heading1' , '1000', 'строка')" type="text" name="heading1" value = "<?=$content[7]?>">Заголовок 1<br>
+<input id = "heading1" onChange = "showMess('heading1' , '1000', 'строка')" type="text" name="heading1" value = "<?=$content->getHeading1()?>">Заголовок 1<br>
 	<div id = "heading1Div">
 	</div>
 	
-<textarea id = "words1" onChange = "showMess('words1' , '1500', 'строка')" type="text" name="words1"><?=$content[8]?></textarea><br>
+<textarea id = "words1" onChange = "showMess('words1' , '1500', 'строка')" type="text" name="words1"><?=$content->getWords1()?></textarea><br>
 	<div id = "words1Div">
 	</div>
 	
-<input id = "heading2" onChange = "showMess('heading2' , '1000', 'строка')" type="text" name="heading2" value = "<?=$content[9]?>">Заголовок 2<br>
+<input id = "heading2" onChange = "showMess('heading2' , '1000', 'строка')" type="text" name="heading2" value = "<?=$content->getHeading2()?>">Заголовок 2<br>
 	<div id = "heading2Div">
 	</div>
 	
-<textarea id = "words2" onChange = "showMess('words2' , '1500', 'строка')" type="text" name="words2" ><?=$content[10]?></textarea><br>
+<textarea id = "words2" onChange = "showMess('words2' , '1500', 'строка')" type="text" name="words2" ><?=$content->getWords2()?></textarea><br>
 	<div id = "words2Div">
 	</div>
 	
@@ -46,36 +45,28 @@
 	<div id = "bannerDiv">
 	</div>
 	
-<input id = "adress" onChange = "showMess('adress' , '500', 'строка')" type="text" name="adress" value = "<?=$content[11]?>">Адрес<br>
+<input id = "adress" onChange = "showMess('adress' , '500', 'строка')" type="text" name="adress" value = "<?=$content->getAdress()?>">Адрес<br>
 	<div id = "adressDiv">
 	</div>
 	
 
-<input id = "email" onChange = "showMess('email' , '155', 'строка')" type="text" name="email" value = "<?=$content[12]?>">Почта<br>
+<input id = "email" onChange = "showMess('email' , '155', 'строка')" type="text" name="email" value = "<?=$content->getEmail()?>">Почта<br>
 	<div id = "emailDiv">
 	</div>
 
-<input id = "title" onChange = "showMess('title' , '155', 'строка')" type="text" name="title" value = "<?=$content[13]?>">Заголовок (title)<br>
+<input id = "title" onChange = "showMess('title' , '155', 'строка')" type="text" name="title" value = "<?=$content->getTitle()?>">Заголовок (title)<br>
 	<div id = "titleDiv">
 	</div>
 
-<input id = "description" onChange = "showMess('description' , '155', 'строка')" type="text" name="description" value = "<?=$content[14]?>">Описание (description)<br>
+<input id = "description" onChange = "showMess('description' , '155', 'строка')" type="text" name="description" value = "<?=$content->getDescription()?>">Описание (description)<br>
 	<div id = "descriptionDiv">
 	</div>
-	
-
-
 <br>
 <div id = "mySubmit">
 Отправить
 </div>
 </div>
 </form>
-<p>
-</p>
-<?
-// echo $lastNumber[1];
-?>
 <script type='text/javascript'>
 var buttonAccess = new Map([
 ['heading' , 'true'],
@@ -121,17 +112,3 @@ function showMess(element, howLong, t)
 				
 }
 </script>
-<style>
-form input{
-	margin:12px;
-}
-form textarea{
-	margin:12px;
-	width:80%;;
-	height: auto;	
-}
-form{
-	margin-left:10%;
-}
-
-</style>
