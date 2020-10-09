@@ -1,5 +1,4 @@
 <?php
-session_start();
 use Dva\Hotels\Controller\ConfigController;
 use Dva\Hotels\Core\Auth;
 
@@ -25,9 +24,6 @@ if(!empty($_POST)){
     $res = $controller->editConfigs($_POST);
     $res === null ? $controller->setSuccess("Информация обновлена") : $controller->setErr('Информация НЕ обновлена');
 }
-        
-
-
 }catch(Exception $e){
     $controller->setErr($e->getMessage());
 }

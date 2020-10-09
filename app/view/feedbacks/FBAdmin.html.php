@@ -1,5 +1,9 @@
 <table class = "table table-hover my-5 ">
 <tbody>
+<caption>Добавленные отзывы</caption>
+<tr>
+<th colspan = "4">Добавленные отзывы</th>
+</tr>
 <?
 foreach($feed as $f){
 
@@ -11,7 +15,7 @@ $imgPathEnd = '" style = "width: 33px; height: 33px;">';
 	echo '</td><td>';
 	echo $f['text'];
 	echo '</td><td>';
-	echo '<a href = "feedBacks.php?admin=list&delfb=';
+	echo '<a href = "feedBacks.php?delfb=';
 	echo $f['id'];
 	echo '">Удалить</a>';
 	echo '</td></tr>';

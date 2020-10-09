@@ -14,9 +14,17 @@ class AdminModel Extends ActiveRecordParentModel
 			'id' => $id
 			]);
 	}
-	
-	// protected $table = 'feedbacks';
-	
+
+	public static function addDataToBD(array $data)
+	{	
+		$fields = sprintf('%s',implode(',' , array_keys($data)));
+		$value = sprintf(':%s', implode(', :' , array_keys($data)));
+		$db = DB::getConnect();
+		$sql = sprintf("INSERT INTO %s (%s) VALUES (%s)", static::getTableName(), $fields, $value);
+		$stmt = $db->prepare($sql);
+		$stmt->execute($data);
+		return $db->lastInsertId();
+	}
 	
 	// public function addFeedback($text, $userName)
 	// {	

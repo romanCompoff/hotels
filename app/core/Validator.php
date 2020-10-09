@@ -4,6 +4,7 @@ namespace Dva\Hotels\Core;
 class Validator
 {
     protected $rules;
+    protected $valid = true;
 
     public function setRules(array $rules)
     {
@@ -20,8 +21,8 @@ class Validator
                 $method = sprintf('check%s', ucfirst($rulesKey));
                 $this->$method($oneFiledRules, $data, $key);
             }
-            // echo $key;
         }
+        return $this->valid;
     }
 
     private function checkMinLength(int $length, string $data, string $fild)
@@ -30,6 +31,7 @@ class Validator
         {
             $text = sprintf("%s должен быть не менее %s символов. У вас %s", $fild, $length, strlen($data));
             throw new \Exception($text);
+            $this->valid(false);
         }
     }
     
@@ -39,6 +41,7 @@ class Validator
         {
             $text = sprintf("%s должен быть не длинней %s символов. У вас %s", $fild, $length, strlen($data));
             throw new \Exception($text);
+            $this->valid(false);
         }
     }    
     private function checkNecessary(int $length, string $data, string $fild)

@@ -29,12 +29,16 @@ class AdminController Extends ActiveRecordParentController
 	protected function RDir(string $path)
 	{
  		// если путь существует и это папка
- 		if (file_exists($path) AND is_dir($path)){
+		 if (!(file_exists($path) AND is_dir($path))){
+			$this->setErr("Неправильный путь к папке");
+		 }else{
  			$dir = opendir($path);
  			while ( false !== ( $element = readdir( $dir ) ) ) {
       			// удаляем только содержимое папки
       				if ( $element != '.' AND $element != '..' )  {
-        			$tmp = $path . '/' . $element;
+					$tmp = $path . '/' . $element;
+					var_dump($path);
+					// die;
         			chmod( $tmp, 0777 );
        				// если элемент является папкой, то
        				// удаляем его используя нашу функцию RDir
@@ -50,7 +54,8 @@ class AdminController Extends ActiveRecordParentController
     closedir($dir);
     // удаляем саму папку
     if ( file_exists( $path ) ) {
-     	rmdir( $path );
+		 rmdir( $path );
+		 $this->setSuccess("Папка с файлами удалена");
    	}}
    }
 
@@ -93,19 +98,32 @@ class AdminController Extends ActiveRecordParentController
 		return $word;
 	}
 
-		public function fUpdate($old, $new, $dir)
+		public function fUpdate(array $files, string $path)
 	{
-		$new = $_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $new);
-		move_uploaded_file($old, $new);
+		if(is_array($files['link1'])){
+			$i = 0;
+			foreach($files as $file){
+				$i++;
+				$dir = $_SERVER['DOCUMENT_ROOT'] . $path;		
+				if(!is_dir($dir) && $dir !== '') {
+					mkdir($dir, 0777, true);
+				}
+				$fullPath = sprintf('%sslide%s.jpg', $dir, $i);
+				move_uploaded_file($file['tmp_name'], $fullPath);
+
+			}
+		}
+		var_dump($files);
+		die;
 	}
 
 	protected function removeImg($name, $dir)
 	{
 		if(file_exists( $_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $name))){
 			unlink($_SERVER['DOCUMENT_ROOT'] . sprintf('/img/%s/%s.jpg', $dir, $name));
-			return 'Изображение успешно удалено';
+			$this->setSuccess( 'Изображение успешно удалено');
 		}else{
-			return 'Неправильный путь к изображению';
+			$this->setErr('Неправильный путь к изображению');
 		}	
 	}
 

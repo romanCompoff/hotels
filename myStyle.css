@@ -2,6 +2,16 @@
     font-family: adana;
     src: local(adana), url(/fonts/7834.ttf);
    }
+input{
+	margin:12px;
+}
+form{
+	text-align: left;
+	padding:33px;
+}
+th{
+	text-align: center;
+}
 #navbarSupportedContent{
 	text-align:center;
 }

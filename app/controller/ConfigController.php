@@ -38,7 +38,10 @@ class ConfigController Extends AdminController
        $validator = new Validator;
         $res = $this->getById(self::CONFIGS_ID);
         $res->setRulesForValidator($validator);
-        $validator->execut($post);
+        $isValid = $validator->execut($post);
+        if(!$isValid){
+            return 1;
+        }
             $res->setSiteName($this->chk($post['siteName']));
             $res->setBanner($this->chk($post['setBanner']));
             $res->setMenu1($this->chk($post['menu1']));

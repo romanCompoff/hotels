@@ -15,9 +15,8 @@ if($_GET['delfb']){
 }
 
 if(!empty($_POST)){
-	$c = $controller->addFeedback($_POST['fbc'], $_POST['userNname']);
-	$f  = $_FILES['pic']['tmp_name'];
-	$controller->fUpdate($f, $c, 'img-feedbacks');
+	$controller->addFeedback($_POST);
+	$controller->fUpdate($_FILES, '/img/img-articles/');
 }
 
 $controller->outputForm();

@@ -7,8 +7,6 @@ use Dva\Hotels\Model\ActiveRecordParentModel;
 
 abstract class ActiveRecordParentController
 {
-    //* Таблица с конфигами */
-    const CONFIGS = 'site_configs';
     /** @var View */
     // private $view;
     protected $title;
@@ -17,11 +15,6 @@ abstract class ActiveRecordParentController
     protected $feedbacks;
     protected $banner = "/img/banner.jpg";
     protected $allhotels;
-
-    // public function __construct()
-    // {
-    //     $this->view = new View(__DIR__ . '/../../../templates');
-    // }
 
     protected function getAll($dataForm)
     {
@@ -35,13 +28,6 @@ abstract class ActiveRecordParentController
 
         $this->$dataForm = $this->build($this->myPath($dataForm .'/'.$dataForm), ['content' => $res]);
     }
-
-    public function getConfig()
-    {
-        $res = $this->getAll(self::CONFIGS);
-        $this->configs = $res[0];
-    }
-
 
      protected function build($template, array $params = [])
     {

@@ -3,7 +3,7 @@
 <tbody>
 <?
 foreach($content as $hotel){
-$imgPath = sprintf('<img src = "/myFiles/articles/%s/', $hotel[0]);
+$imgPath = sprintf('<img src = "/img/img-articles/%s/', $hotel[0]);
 $imgPathEnd = '" style = "width: 33px; height: 33px;">';
 	
 	echo '<tr><td>';
@@ -25,7 +25,7 @@ $imgPathEnd = '" style = "width: 33px; height: 33px;">';
 	echo 'slide4.jpg';
 	echo $imgPathEnd;
 	echo '</td><td>';
-	echo '<a href = "/admin/adminArticle.php?admin=list&del=';
+	echo '<a href = "/admin/adminArticle.php?del=';
 	echo $hotel[0];
 	echo '">Удалить</a>';
 	echo '</td><td>';
