@@ -37,8 +37,6 @@ class AdminController Extends ActiveRecordParentController
       			// удаляем только содержимое папки
       				if ( $element != '.' AND $element != '..' )  {
 					$tmp = $path . '/' . $element;
-					var_dump($path);
-					// die;
         			chmod( $tmp, 0777 );
        				// если элемент является папкой, то
        				// удаляем его используя нашу функцию RDir
@@ -100,7 +98,7 @@ class AdminController Extends ActiveRecordParentController
 
 		public function fUpdate(array $files, string $path)
 	{
-		if(is_array($files['link1'])){
+		if(array_keys($files)[1]){
 			$i = 0;
 			foreach($files as $file){
 				$i++;
@@ -109,12 +107,24 @@ class AdminController Extends ActiveRecordParentController
 					mkdir($dir, 0777, true);
 				}
 				$fullPath = sprintf('%sslide%s.jpg', $dir, $i);
-				move_uploaded_file($file['tmp_name'], $fullPath);
+				$res = move_uploaded_file($file['tmp_name'], $fullPath);
+				if($res){
+					$this->setSuccess('Файл ' .$i. ' загружен');
+				}else{
+					$this->setErr("Файл ' .$i. ' не загружен");
+				}
+			}
+		}else{
 
+			$oneFile = $_SERVER['DOCUMENT_ROOT'] . $path;		
+			$key = array_keys($files)[0];
+			$res = move_uploaded_file($files[$key]['tmp_name'], $oneFile);
+			if($res){
+				$this->setSuccess('Файл загружен');
+			}else{
+				$this->setErr("Файл не загружен");
 			}
 		}
-		var_dump($files);
-		die;
 	}
 
 	protected function removeImg($name, $dir)

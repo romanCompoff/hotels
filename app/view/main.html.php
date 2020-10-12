@@ -332,7 +332,7 @@
 <div class = "col-12 col-sm-12 col-md-6 col-lg-6"> 
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2868952.2528884467!2d32.28820361308605!3d45.39499658567419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1585585090694!5m2!1sru!2sru" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 </div>
-<div class = "col-12 col-sm-12 col-md-5 col-lg-5 py-3" id = "adress" name = "adress"> 
+<div class = "col-12 col-sm-12 col-md-5 col-lg-5 py-3 px-3" id = "adress" name = "adress"> 
 <h3>Адрес:</h3>
 <p><?=$configs['adress']?></p>
 <p>Телефон: 
@@ -396,7 +396,7 @@ function SaveZakaz(eventTag) {
 	}
 		params += "&siteName=<?=$configs['siteName']?>";
       request = new asyncRequest()
-      request.open("POST", "/app/router/sendToEMail", false)
+      request.open("POST", "/app/router/sendToEMail.php", false)
       request.setRequestHeader("Content-type",
         "application/x-www-form-urlencoded")
 

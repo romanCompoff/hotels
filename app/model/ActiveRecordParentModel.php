@@ -3,6 +3,7 @@
 namespace Dva\Hotels\Model;
 
 use Dva\Hotels\Core\DB;
+use Dva\Hotels\Core\Validator;
 
 abstract class ActiveRecordParentModel
 {
@@ -14,6 +15,8 @@ abstract class ActiveRecordParentModel
 
     /** @var string */
     private $userName;
+
+    public static $schema = [];
 
 
     public function __set($name, $value)
@@ -62,5 +65,10 @@ abstract class ActiveRecordParentModel
         ]);
         $res = $stmt->fetchObject(static::class);
         return $res ? $res : null;
+    }
+
+    public static function setRulesForValidator(Validator $validator)
+    {
+        $validator->setRules(static::$schema);
     }
 }

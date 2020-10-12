@@ -7,6 +7,18 @@ class FeedbackModel Extends AdminModel
 {
 	private $text;
 	private $userName;
+	public static $schema = [
+		'userName' => [
+			minLength => 3, 
+			maxLength => 33,
+			isString => true
+		],
+		'text' => [
+			minLength => 3, 
+			maxLength => 199,
+			isString => true
+		],
+	];
 
 	public function getText()
 	{

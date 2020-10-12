@@ -16,7 +16,7 @@ class ConfigController Extends AdminController
     public function getById(int $id)
    {
         $res = ConfigModel::getById($id);
-        // $res->getSiteName();
+       // $res->getSiteName();
         // $res->getBanner();
         // $res->getMenu1();
         // $res->getMenu2();
@@ -29,7 +29,7 @@ class ConfigController Extends AdminController
         // $res->getAdress();
         // $res->getEmail();
         // $res->getTitle();
-        // $res->getDescription();
+        // $res->getDescription(); 
         return $res;
    }
 
@@ -37,7 +37,7 @@ class ConfigController Extends AdminController
    {
        $validator = new Validator;
         $res = $this->getById(self::CONFIGS_ID);
-        $res->setRulesForValidator($validator);
+        ConfigModel::setRulesForValidator($validator);
         $isValid = $validator->execut($post);
         if(!$isValid){
             return 1;

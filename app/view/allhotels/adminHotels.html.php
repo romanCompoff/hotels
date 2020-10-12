@@ -1,5 +1,4 @@
-<?=$lastNumber['error']?>
-<form enctype="multipart/form-data" method = "post" action = "/admin/admin.php" class = "myAdmin">
+<form enctype="multipart/form-data" method = "post" action = "/admin/allHotels.php" class = "myAdmin">
 <div class = "text-left">
 <div>
 <h1>Добавление нового отеля</h1>
@@ -84,7 +83,7 @@ function showMess(element, howLong, t)
 							buttonAccess.set(element,'true');
 							document.getElementById(element + 'Div').innerHTML = '<span class = "alert alert-success" style = "margin: 10px 10px">Все впорядке</span>';
 						if(buttonAccess.get('heading') == 'true' && buttonAccess.get('preview') == 'true' && buttonAccess.get('link1') == 'true' && buttonAccess.get('link2') == 'true' && buttonAccess.get('link3') == 'true' && buttonAccess.get('link4') == 'true' && buttonAccess.get('link1') == 'true')
-						{document.getElementById('mySubmit').innerHTML='<button type = "submit" name = "Отправить">Отправить</button>';
+						{document.getElementById('mySubmit').innerHTML='<button type = "submit">Отправить</button>';
 					}
 						else
 						{

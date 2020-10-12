@@ -20,10 +20,10 @@ class ConfigModel Extends ActiveRecordParentModel
 	protected $email;
 	protected $title;
     protected $description;
-    private $schema = [
+    public static $schema = [
         title => [
             minLength => 33, 
-            maxLength => 190,
+            maxLength => 190
         ],
         description => [
             minLength => 70, 
@@ -66,11 +66,6 @@ class ConfigModel Extends ActiveRecordParentModel
         ],
 
     ];
-
-    public function setRulesForValidator(Validator $validator)
-    {
-        $validator->setRules($this->schema);
-    }
 
 	protected static function getTableName(): string 
     {

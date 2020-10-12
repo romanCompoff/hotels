@@ -14,7 +14,7 @@ $uri = $_SERVER['REQUEST_URI'];
 $uriParts = explode("?", $uri);
 $uriParts = explode("/", $uriParts[0]);
 $uriParts = array_values($uriParts);
-if($uriParts[3] == 'editorData.php'){
+if($uriParts[3] == 'sendToEMail'){
 	if(isset($_POST['phoneText'])){
 		$kw = $_POST['utm_term'] && $_POST['utm_term'] != '' ? $_POST['utm_term'] : 0;
 		$campaign = $_POST['utm_campaign'] && $_POST['utm_campaign'] != '' ? $_POST['utm_campaign'] : 0;

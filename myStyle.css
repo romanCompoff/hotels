@@ -149,7 +149,13 @@ form#configForm textarea{
 form#configForm{
 	margin-left:10%;
 }
-
+.fullImg img{
+	width:100%;
+}
+.myClass img {
+    width: 100%;
+    height: auto;
+}
 @media screen and (max-width: 650px){
 	.img-wrap p{
 	font-size:14px;

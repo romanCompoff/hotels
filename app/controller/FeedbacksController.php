@@ -2,12 +2,19 @@
 namespace Dva\Hotels\Controller;
 
 use Dva\Hotels\Model\FeedbackModel;
+use Dva\Hotels\Core\Validator;
 
 class FeedbacksController Extends AdminController
 {
 	//Добавление отзыва в базу
 	public function addFeedback($post)
 	{
+		$validator = new Validator;
+		FeedbackModel::setRulesForValidator($validator);
+		$isValid = $validator->execut($post);
+        if(!$isValid){
+            return 1;
+        }
 		$lastId = FeedbackModel::addDataToBD($post);
 		return $lastId;
 	}
@@ -18,9 +25,9 @@ class FeedbacksController Extends AdminController
 		$this->removeImg($id, 'img-feedbacks');
 	}		
 	//вывод формы для добавления в админке
-	public function outputForm()
+	public function outputForm(array $post=[])
 	{
-		$this->content = $this->build($this->myPath('feedbacks/FeedBackForm'), []);
+		$this->content = $this->build($this->myPath('feedbacks/FeedBackForm'), ['post'=>$post]);
 	}
 	//вывод добавленных отзывов
 	public function allFeedbacksToAdmin()

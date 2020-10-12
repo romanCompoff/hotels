@@ -1,5 +1,5 @@
 <?php
-namespace Dva\Hotels\Model;
+namespace Dva\Hotels\Controller;
 
 use Dva\Hotels\core\DB;
 

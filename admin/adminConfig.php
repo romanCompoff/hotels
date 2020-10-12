@@ -12,14 +12,7 @@ $controller = new ConfigController;
 
 if(!empty($_POST)){
     if($_FILES['banner']['size']){
-        var_dump($_FILES);
-	$dir = $_SERVER['DOCUMENT_ROOT'] . '/img/';
-		if(!is_dir($dir)) {
-			 mkdir($dir, 0777, true);
-		 }
-	$destiation_dir = $dir . 'banner.jpg';
-    $imgRes = move_uploaded_file($_FILES['banner']['tmp_name'], $destiation_dir ); 
-    $imgRes ? $controller->setSuccess("Картинка загружена") : $controller->setErr('Картинка НЕ загружена');
+        $controller->fUpdate($_FILES, '/img/banner.jpg');
     }
     $res = $controller->editConfigs($_POST);
     $res === null ? $controller->setSuccess("Информация обновлена") : $controller->setErr('Информация НЕ обновлена');

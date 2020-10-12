@@ -1,6 +1,10 @@
 
 <table class = "table table-hover my-5 ">
 <tbody>
+<caption>Добавленные блоки</caption>
+<tr>
+<th colspan = "6">Добавленные блоки</th>
+</tr>
 <?
 foreach($content as $hotel){
 $imgPath = sprintf('<img src = "/img/img-articles/%s/', $hotel[0]);

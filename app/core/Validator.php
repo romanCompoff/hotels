@@ -25,31 +25,31 @@ class Validator
         return $this->valid;
     }
 
-    private function checkMinLength(int $length, string $data, string $fild)
+    private function checkMinLength(int $length, string $data, string $field)
     {
         if(strlen($data) < $length)
         {
-            $text = sprintf("%s должен быть не менее %s символов. У вас %s", $fild, $length, strlen($data));
+            $text = sprintf("%s должен быть не менее %s символов. У вас %s", $field, $length, strlen($data));
             throw new \Exception($text);
             $this->valid(false);
         }
     }
     
-    private function checkMaxLength(int $length, string $data, string $fild)
+    private function checkMaxLength(int $length, string $data, string $field)
     {
         if(strlen($data) > $length)
         {
-            $text = sprintf("%s должен быть не длинней %s символов. У вас %s", $fild, $length, strlen($data));
+            $text = sprintf("%s должен быть не длинней %s символов. У вас %s", $field, $length, strlen($data));
             throw new \Exception($text);
             $this->valid(false);
         }
-    }    
-    private function checkNecessary(int $length, string $data, string $fild)
+    }   
+    private function checkIsString(int $length, string $data, string $field)
     {
-        if(strlen($data) > $length)
-        {
-            $text = sprintf("%s должен быть не длинней %s символов. У вас %s", $fild, $length, strlen($data));
+        if(!is_string($data) || is_numeric($data)){   
+            $text = sprintf("%s должен быть текстом", $field);
             throw new \Exception($text);
+            $this->valid(false);
         }
     }
 }
