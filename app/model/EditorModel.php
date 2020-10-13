@@ -14,10 +14,19 @@ class EditorModel Extends AdminModel
     {
         return $this->title;
     }
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 
     public function getDescription()
     {
         return $this->description;
+    }
+  
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
   
     public function getPageName()
@@ -25,14 +34,41 @@ class EditorModel Extends AdminModel
         return $this->pageName;
     }
   
+    public function setPageName($pageName)
+    {
+        $this->pageName = $pageName;
+    }
+  
     public function getEditorText()
     {
         return $this->editorText;
     }
   
+    public function setEditorText($editorText)
+    {
+        $this->editorText = $editorText;
+    }
+  
     public static function getTableName()
     {
         return 'editordata';
+    }
+
+    public function update()
+    {
+        $db = DB::getConnect();
+		$sql = sprintf("UPDATE %s SET title = :title, description = :description, pageName = :pageName, editorText = :editorText WHERE id = :id", $this->getTableName());
+        // var_dump($sql);
+        // die;
+        $stmt = $db->prepare($sql);
+		$stmt->execute([
+		'title' => $this->getTitle(),
+		'description' => $this->getDescription(),
+		'pageName' => $this->getPageName(),
+        'editorText' => $this->getEditorText(),
+        'id' => $this->getId()
+        ]);
+     return $stmt->error_list;
     }
 
 }

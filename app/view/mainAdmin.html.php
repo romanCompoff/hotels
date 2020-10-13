@@ -46,6 +46,7 @@
 								<a class="dropdown-item" href="/admin/adminConfig.php">Конфигурации</a>
 								<a class="dropdown-item" href="/admin/feedBacks.php">Отзыв</a>
 								<a class="dropdown-item" href="/admin/prevew.php">Превью</a>
+								<a class="dropdown-item" href="/admin/freeText.php">Новая страница</a>
 								<div class="dropdown-divider">
 								</div>
 								

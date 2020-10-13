@@ -10,6 +10,8 @@ abstract class ActiveRecordParentController
     /** @var View */
     // private $view;
     protected $title;
+    protected $content;
+    protected $description;
     protected $articles;
     protected $configs;
     protected $feedbacks;
@@ -49,7 +51,10 @@ abstract class ActiveRecordParentController
         echo $this->build(
         $this->myPath('main'),
         [
-        'content' => $this->allhotels,
+        'title' => $this->title,
+        'description' => $this->description,
+        'content' => $this->content,
+        'allhotels' => $this->allhotels,
         'articles' => $this->articles,
         'configs' => $this->configs,
         'banner' => $this->banner,

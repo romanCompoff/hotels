@@ -9,23 +9,34 @@ $Login->login();
 		
 $controller = new EditorController;
 
+try{
+if($_GET['edit']){
 
-$uri = $_SERVER['REQUEST_URI'];
-$uriParts = explode("/", $uri);
-$uriParts = array_values($uriParts);
-var_dump($uriParts);
-die;
+	$controller->getByPageName($_GET['edit']);
 
-	if($_GET['del']){
-		$controller->delAllHotels($_GET['del']);
-	}
-	if(!empty($_POST)){
-		$res = $controller->addEditorText($_POST);
-		var_dump($res);
-        $controller->getById($res);
+}elseif($_GET['del']){
+	
+	$controller->delPage($_GET['del']);
+
+}elseif(!empty($_POST)){
+	
+	if(!($_POST['id'] == "")){
+		
+		$controller->editEditorText($_POST);	
+	
 	}else{
-		$main = $controller->outputForm();
+		unset($_POST['id']);
+		array_values($_POST);
+		$controller->addEditorText($_POST);
+	
 	}
+}else{
 
-// $controller->pageList();
+	$main = $controller->outputForm();
+
+}
+}catch(Exception $e){
+    $controller->setErr($e->getMessage());
+}
+$controller->pageList();
 $controller->render();

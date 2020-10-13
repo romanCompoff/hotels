@@ -31,6 +31,11 @@ abstract class ActiveRecordParentModel
     public function getId(): int
     {
         return $this->id;
+    }    
+    
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
@@ -70,5 +75,17 @@ abstract class ActiveRecordParentModel
     public static function setRulesForValidator(Validator $validator)
     {
         $validator->setRules(static::$schema);
+    }
+
+    public static function getByPageName(string $pageName)
+    {
+        $db = DB::getConnect();
+        $sql = sprintf('SELECT * FROM %s WHERE pageName = :pageName', static::getTableName());
+        $stmt = $db->prepare($sql);
+        $stmt->execute([
+            'pageName' => $pageName
+        ]);
+        $res = $stmt->fetch();
+        return $res ? $res : null;
     }
 }

@@ -9,25 +9,35 @@ class EditorController Extends AdminController
 	{
 		$this->content = $this->build($this->myPath('editordata/editor'), ['post'=>$post]);
     }
+
+    public function getByPageName($pageName)
+    {
+         $res = EditorModel::getByPageName($pageName);
+         $this->content = $this->build($this->myPath('editordata/editor'), ['content' => $res]);
+    }
     
     public function addEditorText($post)
     {
         $post['pageName'] = $this->translitSef($post['pageName']);
+        $res=EditorModel::getByPageName($post['pageName']);
+        if($res){
+            $this->outputForm($post);
+            throw new \Exception("Материал с таким названием уже существует");
+        }
         $lastId = EditorModel::addDataToBD($post);
-        // var_dump($post);
-		return $lastId;
+        return $lastId;
     }
 
     public function getById(int $id)
-    {
-         $res = EditorModel::getById($id);
-         $this->content = $this->build($this->myPath('editordata/editor'), ['content' => $res]);
-    }
+   {
+        $res = EditorModel::getById($id);
+        return $res;
+   }
 
-    public function editorList()
+    public function pageList()
     {
-        $res = $this->getAll('allhotels');
-        $this->listForDel = $this->build($this->myPath('allhotels/adminHotelsList'), ['content' => $res]);
+        $res = $this->getAll('editordata');
+        $this->listForDel = $this->build($this->myPath('editordata/pageList'), ['content' => $res]);
     }
 
     public function delEditorText($id)
@@ -55,5 +65,29 @@ class EditorController Extends AdminController
         $value = trim($value, '-');	
     
         return $value;
+    }
+    public function editEditorText($post)
+    {
+        // $validator = new Validator;
+         $res = $this->getById($post['id']);
+        //  var_dump($res);
+        //  die;
+        //  EditorModel::setRulesForValidator($validator);
+        //  $isValid = $validator->execut($post);
+        //  if(!$isValid){
+            //  return 1;
+        //  }
+             $res->setId($this->chk($post['id']));
+             $res->setTitle($this->chk($post['title']));
+             $res->setDescription($this->chk($post['description']));
+             $res->setPageName($this->chk($post['pageName']));
+             $res->setEditorText($post['editorText']);
+             return $res->update();
+ 
+    }
+
+    public function delPage($id)
+    {
+        $res = EditorModel::delById($id);
     }
 }

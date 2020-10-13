@@ -2,6 +2,13 @@
     font-family: adana;
     src: local(adana), url(/fonts/7834.ttf);
    }
+h1,
+h2{
+text-align:center;
+}
+p{
+	text-align: justify;
+}
 input{
 	margin:12px;
 }

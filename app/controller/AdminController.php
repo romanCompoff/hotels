@@ -56,47 +56,14 @@ class AdminController Extends ActiveRecordParentController
 		 $this->setSuccess("Папка с файлами удалена");
    	}}
    }
-
-
-	// 	public function addHotels($post)
-	// {
 	
-	// 	$mPost = new BaseModel(DB::getConnect());
-	// 	$lastId = $mPost->addPost(	$this->chk($post['heading']),
-	// 								$this->chk($post['price']), 
-	// 								$this->chk($post['preview']));
-	// 	return $lastId;
-	// }
-	
-	// 	public function addArticles($post)
-	// {
-		
-	// 	$mPost = new BaseModel(DB::getConnect());
-	// 	$lastId = $mPost->addArticle($this->chk($post['preview']));
-	// 	return $lastId;
-	// }
-	
-	// 	public function delHotel($id)
-	// {
-			
-	// 	$mPost = new baseModel(DB::getConnect());
-	// 	$mPost->deletePost($id);
-	// }			
-	
-	// 	public function delArticle($id)
-	// {
-			
-	// 	$mPost = new baseModel(DB::getConnect());
-	// 	$mPost->deleteArticle($id);
-	// }
-	
-		public function chk($word)
+	public function chk($word)
 	{
 		$word = htmlspecialchars($word);
 		return $word;
 	}
 
-		public function fUpdate(array $files, string $path)
+	public function fUpdate(array $files, string $path)
 	{
 		if(array_keys($files)[1]){
 			$i = 0;

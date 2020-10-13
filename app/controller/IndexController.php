@@ -11,6 +11,30 @@ class IndexController Extends ActiveRecordParentController
     {
         $res = $this->getAll('site_configs');
         $this->configs = $res[0];
+        $this->title = $res[0]['title'];
+        $this->description = $res[0]['description'];
+
+    }
+
+    public function pageRout($pageName)
+    {
+        if(substr($pageName, -5) == '.html'){
+            $pageName = substr_replace($pageName, '', -5);
+        }
+        $res = IndexModel::getByPageName($pageName);
+        if(!$res){
+            $this->err404();
+        }
+        $this->title = $res['title'];
+        $this->description = $res['description'];
+        $this->content = $this->build($this->myPath('editordata/editorText'), ['content' => $res['editorText']]);
+    
+    }
+
+    public function err404()
+    {
+        header("HTTP/1.0 404 Not Found");
+        exit;
     }
 
 }
