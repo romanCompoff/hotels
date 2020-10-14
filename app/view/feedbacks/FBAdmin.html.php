@@ -4,6 +4,12 @@
 <tr>
 <th colspan = "4">Добавленные отзывы</th>
 </tr>
+<tr>
+<th>Картинка</th>
+<th>Имя</th>
+<th>Отзыв</th>
+<th>Действия</th>
+</tr>
 <?
 foreach($feed as $f){
 

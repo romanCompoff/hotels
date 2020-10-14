@@ -1,8 +1,10 @@
 <form enctype="multipart/form-data" method = "post" action = "/admin/allHotels.php" class = "myAdmin">
 <div class = "text-left">
 <div>
-<h1>Добавление нового отеля</h1>
+<h1>Добавление нового блока</h1>
 </div>
+
+<?=$pageChanger?>
 
 <input id = "heading" onChange = "showMess('heading' , '400', 'строка')" type="text" name = "heading">Заголовок<br>
 	<div id = "headingDiv">

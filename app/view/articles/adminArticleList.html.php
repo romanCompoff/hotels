@@ -5,6 +5,11 @@
 <tr>
 <th colspan = "6">Добавленные блоки</th>
 </tr>
+<tr>
+<th>Название</th>
+<th colspan = "4">Картинки</th>
+<th>Действия</th>
+</tr>
 <?
 foreach($content as $hotel){
 $imgPath = sprintf('<img src = "/img/img-articles/%s/', $hotel[0]);

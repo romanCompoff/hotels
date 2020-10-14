@@ -5,6 +5,7 @@
 <h1>Добавление нового блока</h1>
 </div>
 
+<?=$pageChanger?>
 
 <textarea id = "preview" onChange = "showMess('preview' , '900', 'строка')" type="text" name = "preview">Описание</textarea><br> 
 	<div id = "previewDiv">

@@ -41,10 +41,10 @@ abstract class ActiveRecordParentModel
     /**
      * @return Article[]
      */
-    public static function getAll($tables): array
+    public static function getAll($tables, $col = "*" , $where = ""): array
     {
         $db = DB::getConnect();
-        $sql = sprintf('SELECT * FROM %s', $tables);
+        $sql = sprintf('SELECT %s FROM %s %s', $col , $tables, $where);
         $stmt = $db->query($sql);
 
         return $stmt->fetchAll();

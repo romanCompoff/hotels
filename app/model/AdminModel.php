@@ -5,6 +5,18 @@ use Dva\Hotels\core\DB;
 
 class AdminModel Extends ActiveRecordParentModel
 {
+	private $pageName;
+	
+	public function getPageName(): int
+    {
+        return $this->pageName;
+    }    
+    
+    public function setPageName($id)
+    {
+        $this->pageName = $pageName;
+	}
+	
 	public static function delById($id)
 	{
 		$db = DB::getConnect();
@@ -25,6 +37,7 @@ class AdminModel Extends ActiveRecordParentModel
 		$stmt->execute($data);
 		return $db->lastInsertId();
 	}
+
 	
 	// public function addFeedback($text, $userName)
 	// {	

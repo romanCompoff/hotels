@@ -199,6 +199,8 @@
  -->
  <div class = "container">
 <?=$content?>
+<?=$allHotels?>
+
 </div>
 
 

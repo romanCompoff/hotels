@@ -8,7 +8,9 @@ class ArticlesController Extends AdminController
 {
     public function outputForm()
     {
-        $this->content = $this->build($this->myPath('articles/adminArticles'), []);
+        $pageChanger = $this->getAll('editordata', 'pageName, title');
+        $pageChanger = $this->build($this->myPath('admin/pageChanger'), ['content'=>$pageChanger]);
+        $this->content = $this->build($this->myPath('articles/adminArticles'), ['pageChanger'=>$pageChanger]);
     }    
     
     public function articlesList()

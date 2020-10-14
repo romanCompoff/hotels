@@ -1,7 +1,7 @@
 <?php
 namespace Dva\Hotels\Controller;
 
-use Dva\Hotels\Model\BaseModel;
+use Dva\Hotels\Model\AdminModel;
 use Dva\Hotels\Core\Validator;
 
 
@@ -22,7 +22,7 @@ class AdminController Extends ActiveRecordParentController
 		[
 		'err' => $this->err,
 		'content' => $this->content,
-		'listForDel' => $this->listForDel,
+		'listForDel' => $this->listForDel
 		]);
 	}
 

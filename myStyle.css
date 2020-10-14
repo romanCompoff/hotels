@@ -7,8 +7,20 @@ h2{
 text-align:center;
 }
 p{
-	text-align: justify;
+	/* text-align: justify; */
 }
+#pageChangerDiv{
+	border:solid white 1px;
+	border-radius: 12px;;
+	padding:33px;
+	margin:12px;
+	text-align: center;
+	background-color:rgb(223, 242, 255);
+}
+#pageChangerDiv select{
+	font-size: larger;
+}
+select,
 input{
 	margin:12px;
 }

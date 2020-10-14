@@ -18,16 +18,20 @@ abstract class ActiveRecordParentController
     protected $banner = "/img/banner.jpg";
     protected $allhotels;
 
-    protected function getAll($dataForm)
+    protected function getAll($dataForm, $col = "*", $where = "")
     {
-        $res = ActiveRecordParentModel::getAll($dataForm);
+        $res = ActiveRecordParentModel::getAll($dataForm, $col, $where);
         return $res;
     }
 
-    public function renderAllBlocks($dataForm)
+    public function renderAllBlocks($dataForm, $page = "")
     {
-        $res = $this->getAll($dataForm);
-
+        if($page!=""){
+            $where = sprintf("WHERE pageName = '%s'", $page);
+            $res = $this->getAll($dataForm, '*', $where);
+        }else{
+            $res = $this->getAll($dataForm);
+        }
         $this->$dataForm = $this->build($this->myPath($dataForm .'/'.$dataForm), ['content' => $res]);
     }
 
@@ -54,7 +58,7 @@ abstract class ActiveRecordParentController
         'title' => $this->title,
         'description' => $this->description,
         'content' => $this->content,
-        'allhotels' => $this->allhotels,
+        'allHotels' => $this->allhotels,
         'articles' => $this->articles,
         'configs' => $this->configs,
         'banner' => $this->banner,

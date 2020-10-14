@@ -7,7 +7,6 @@ class EditorModel Extends AdminModel
 {
     private $title;
     private $description;
-    private $pageName;
     private $editorText;
 
     public function getTitle()
@@ -27,16 +26,6 @@ class EditorModel Extends AdminModel
     public function setDescription($description)
     {
         $this->description = $description;
-    }
-  
-    public function getPageName()
-    {
-        return $this->pageName;
-    }
-  
-    public function setPageName($pageName)
-    {
-        $this->pageName = $pageName;
     }
   
     public function getEditorText()

@@ -18,9 +18,6 @@ class IndexController Extends ActiveRecordParentController
 
     public function pageRout($pageName)
     {
-        if(substr($pageName, -5) == '.html'){
-            $pageName = substr_replace($pageName, '', -5);
-        }
         $res = IndexModel::getByPageName($pageName);
         if(!$res){
             $this->err404();
