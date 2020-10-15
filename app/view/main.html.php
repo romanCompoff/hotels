@@ -36,6 +36,7 @@
 						<li class="nav-item">
 							<a class="nav-link" href="#">Домашняя <span class="sr-only">(current)</span></a>
 						</li>
+            <?=$menu?>
 						<li class="nav-item">
 							<a class="nav-link" href="#numbers"><?=$configs['menu1']?></a>
 						</li>

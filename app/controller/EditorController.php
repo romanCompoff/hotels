@@ -80,6 +80,7 @@ class EditorController Extends AdminController
              $res->setId($this->chk($post['id']));
              $res->setTitle($this->chk($post['title']));
              $res->setDescription($this->chk($post['description']));
+             $res->setMenuName($this->chk($post['menuName']));
              $res->setPageName($this->chk($post['pageName']));
              $res->setEditorText($post['editorText']);
              return $res->update();

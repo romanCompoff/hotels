@@ -47,7 +47,7 @@ abstract class ActiveRecordParentModel
         $sql = sprintf('SELECT %s FROM %s %s', $col , $tables, $where);
         $stmt = $db->query($sql);
 
-        return $stmt->fetchAll();
+        return $stmt ? $stmt->fetchAll() : [];
     }
 
     protected function underscoreToCamelCase(string $source): string
@@ -85,7 +85,9 @@ abstract class ActiveRecordParentModel
         $stmt->execute([
             'pageName' => $pageName
         ]);
-        $res = $stmt->fetch();
+        // var_dump($res);
+        // die;
+        $res = $stmt ? $stmt->fetch() : null;
         return $res ? $res : null;
     }
 }

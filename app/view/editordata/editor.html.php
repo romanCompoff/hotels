@@ -5,6 +5,7 @@ $title = $content['title'];
 $description = $content['description'];
 $pageName = $content['pageName'];
 $editorText = $content['editorText'];
+$menuName = $content['menuName'];
 }
 ?>
 <script src = "./editor/3/ckeditor/ckeditor.js"></script>
@@ -12,6 +13,7 @@ $editorText = $content['editorText'];
          <input type="hidden" name="id" id = "id" value = "<?=$id;?>"> Заголовок страницы(title)<br>
          <input type="text" name="title" id = "title" value = "<?=$title;?>"> Заголовок страницы(title)<br>
          <input type="text" name="description" id = "description" value = "<?=$description;?>"> Описание страницы(description)<br>
+         <input type="text" name="menuName" id = "menuName" value = "<?=$menuName;?>"> Пункт меню<br>
          <input type="text" name="pageName" id = "pageName" value = "<?=$pageName;?>"> Название страницы<br>
          <textarea id="editor1" name="editorText"><?=$editorText?></textarea>
     <script>

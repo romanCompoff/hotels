@@ -62,7 +62,8 @@ abstract class ActiveRecordParentController
         'articles' => $this->articles,
         'configs' => $this->configs,
         'banner' => $this->banner,
-        'fb' => $this->feedbacks
+        'fb' => $this->feedbacks,
+        'menu'=>$this->menu
         ]
         );
     }

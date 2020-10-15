@@ -7,6 +7,9 @@ use Dva\Hotels\Model\IndexModel;
 class IndexController Extends ActiveRecordParentController
 {
     const CONFIGS = 1;
+
+    protected $menu;
+
     public function getConfig()
     {
         $res = $this->getAll('site_configs');
@@ -26,6 +29,12 @@ class IndexController Extends ActiveRecordParentController
         $this->description = $res['description'];
         $this->content = $this->build($this->myPath('editordata/editorText'), ['content' => $res['editorText']]);
     
+    }
+
+    public function menuList()
+    {
+        $res = $this->getAll('editordata', 'menuName, pageName');
+        $this->menu = $this->build($this->myPath('menu/mainMenu'), ['content' => $res]);
     }
 
     public function err404()

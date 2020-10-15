@@ -27,6 +27,16 @@ class EditorModel Extends AdminModel
     {
         $this->description = $description;
     }
+
+    public function getMenuName()
+    {
+        return $this->menuName;
+    }
+  
+    public function setMenuName($menuName)
+    {
+        $this->menuName = $menuName;
+    }
   
     public function getEditorText()
     {
@@ -53,6 +63,7 @@ class EditorModel Extends AdminModel
 		$stmt->execute([
 		'title' => $this->getTitle(),
 		'description' => $this->getDescription(),
+		'menuName' => $this->getMenuName(),
 		'pageName' => $this->getPageName(),
         'editorText' => $this->getEditorText(),
         'id' => $this->getId()

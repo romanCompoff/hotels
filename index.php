@@ -33,6 +33,7 @@ if($uriParts[0] ?? $uriParts[0] != ""){
 $controller->renderAllBlocks('feedbacks');
 $controller->renderAllBlocks('articles', $pageName);
 $controller->renderAllBlocks('allhotels', $pageName) ;
+$controller->menuList();
 
 $controller->render();
 // $ads = new GAdsController;

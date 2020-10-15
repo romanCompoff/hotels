@@ -17,7 +17,11 @@ foreach($content as $page){
 	echo '<tr><td>';
 	echo $page['id'];
 	echo '</td><td>';
+	echo '<a href = "/';
+	echo $page['pageName'];
+	echo '.html">';
 	echo $page['title'];
+	echo '</a>';
 	echo '</td><td>';
 	echo $page['description'];
 	echo '</td><td>';
