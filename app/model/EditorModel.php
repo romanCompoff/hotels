@@ -8,6 +8,30 @@ class EditorModel Extends AdminModel
     private $title;
     private $description;
     private $editorText;
+    public static $schema = [
+        title => [
+            minLength=>30,
+            maxLength=>100,
+            isString=>true
+        ],
+        description => [
+            minLength=>120,
+            maxLength=>270,
+            isString=>true
+        ],
+        menuName => [
+            minLength=>1,
+            maxLength=>50
+        ],
+        pageName => [
+            minLength=>1,
+            maxLength=>50
+        ],
+        editorText => [
+            minLength=>0,
+            isString=>true
+        ]
+        ];
 
     public function getTitle()
     {
@@ -56,7 +80,7 @@ class EditorModel Extends AdminModel
     public function update()
     {
         $db = DB::getConnect();
-		$sql = sprintf("UPDATE %s SET title = :title, description = :description, pageName = :pageName, editorText = :editorText WHERE id = :id", $this->getTableName());
+		$sql = sprintf("UPDATE %s SET title = :title, description = :description, menuName = :menuName, pageName = :pageName, editorText = :editorText WHERE id = :id", $this->getTableName());
         // var_dump($sql);
         // die;
         $stmt = $db->prepare($sql);
@@ -68,6 +92,7 @@ class EditorModel Extends AdminModel
         'editorText' => $this->getEditorText(),
         'id' => $this->getId()
         ]);
+        
      return $stmt->error_list;
     }
 

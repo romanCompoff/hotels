@@ -7,4 +7,18 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 <priority>0.4</priority>
 </url>';
 
+use Dva\Hotels\Controller\IndexController;
+include 'vendor/autoload.php';
+$controller = new IndexController;
+$data = $controller->getAll("editordata");
+foreach($data as $pages):?>
+	<url>
+		<loc>/<?=$pages['pageName']?>.html</loc>
+		<lastmod><? echo date("Y-m-01") ?></lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.4</priority>
+	</url>
+<?
+endforeach;
 echo '</urlset>';
+?>

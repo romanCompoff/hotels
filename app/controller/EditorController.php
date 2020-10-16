@@ -7,7 +7,7 @@ class EditorController Extends AdminController
 {
     public function outputForm(array $post=[])
 	{
-		$this->content = $this->build($this->myPath('editordata/editor'), ['post'=>$post]);
+		$this->content = $this->build($this->myPath('editordata/editor'), ['content'=>$post]);
     }
 
     public function getByPageName($pageName)
@@ -18,6 +18,12 @@ class EditorController Extends AdminController
     
     public function addEditorText($post)
     {
+        $validator = new Validator;
+        $validator->setRules(EditorModel::getRulesForValidator());
+        $isValid = $validator->execut($post);
+        if(!$isValid){
+            return;
+        }
         $post['pageName'] = $this->translitSef($post['pageName']);
         $res=EditorModel::getByPageName($post['pageName']);
         if($res){
@@ -68,15 +74,15 @@ class EditorController Extends AdminController
     }
     public function editEditorText($post)
     {
-        // $validator = new Validator;
+        $validator = new Validator;
          $res = $this->getById($post['id']);
         //  var_dump($res);
         //  die;
-        //  EditorModel::setRulesForValidator($validator);
-        //  $isValid = $validator->execut($post);
-        //  if(!$isValid){
-            //  return 1;
-        //  }
+         EditorModel::setRulesForValidator($validator);
+         $isValid = $validator->execut($post);
+         if(!$isValid){
+             return 1;
+         }
              $res->setId($this->chk($post['id']));
              $res->setTitle($this->chk($post['title']));
              $res->setDescription($this->chk($post['description']));

@@ -27,7 +27,7 @@ class FeedbacksController Extends AdminController
 	//вывод формы для добавления в админке
 	public function outputForm(array $post=[])
 	{
-		$this->content = $this->build($this->myPath('feedbacks/FeedBackForm'), ['post'=>$post]);
+		$this->content = $this->build($this->myPath('feedbacks/feedBackForm'), ['post'=>$post]);
 	}
 	//вывод добавленных отзывов
 	public function allFeedbacksToAdmin()

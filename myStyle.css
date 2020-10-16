@@ -175,6 +175,20 @@ form#configForm{
     width: 100%;
     height: auto;
 }
+.btn-group-vertical>.btn{
+	/* width:200px; */
+
+}
+#adminMenu a.btn{
+	color:white;
+}
+#adminMenu{
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-top:15px;
+	margin-right: 0px;
+	/* border: double rgb(125, 158, 158) 1px; */
+}
 @media screen and (max-width: 650px){
 	.img-wrap p{
 	font-size:14px;

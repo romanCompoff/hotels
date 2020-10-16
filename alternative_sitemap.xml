@@ -1,0 +1,25 @@
+<?php
+header ("Content-Type:application/xml");
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>http://' . $_SERVER['SERVER_NAME'] .'</loc>
+<lastmod>2020-02-13</lastmod>
+<priority>0.4</priority>
+</url>';
+use Dva\Hotels\Core\DB;
+include __DIR__ . '/vendor/autoload.php';
+		$db =  DB::getConnect();
+        $sql = sprintf('SELECT pageName FROM editordata');
+        $stmt = $db->query($sql);
+$data = $stmt->fetchAll();
+foreach($data as $pages):?>
+	<url>
+		<loc>http://<?= $_SERVER['SERVER_NAME'] . '/' .$pages['pageName']?>.html</loc>
+		<lastmod><? echo date("Y-m-01") ?></lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.4</priority>
+	</url>
+<?
+endforeach;
+echo '</urlset>';
+?>

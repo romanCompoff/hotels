@@ -11,13 +11,12 @@
 <th>Действия</th>
 </tr>
 <?
-
 foreach($content as $hotel){
-$imgPath = sprintf('<img src = "/img/img-allhotels/%s/', $hotel[0]);
+$imgPath = sprintf('<img src = "/img/img-allhotels/%s/', $hotel[id]);
 $imgPathEnd = '" style = "width: 33px; height: 33px;">';
 	
 	echo '<tr><td>';
-	echo $hotel[1];
+	echo $hotel['heading'];
 	echo '</td><td>';
 	echo $imgPath;
 	echo 'slide1.jpg';
@@ -36,10 +35,9 @@ $imgPathEnd = '" style = "width: 33px; height: 33px;">';
 	echo $imgPathEnd;
 	echo '</td><td>';
 	echo '<a href = "/admin/AllHotels.php?del=';
-	echo $hotel[0];
+	echo $hotel['id'];
 	echo '">Удалить</a>';
 	echo '</td><td>';
-	// var_dump($hotel);
 	echo '<br>';
 	echo '</td></tr>';
 }

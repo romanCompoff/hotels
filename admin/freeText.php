@@ -21,22 +21,23 @@ if($_GET['edit']){
 }elseif(!empty($_POST)){
 	
 	if(!($_POST['id'] == "")){
-		
 		$controller->editEditorText($_POST);	
-	
+		
 	}else{
 		unset($_POST['id']);
 		array_values($_POST);
 		$controller->addEditorText($_POST);
-	
+		
 	}
 }else{
 
-	$main = $controller->outputForm();
+	$controller->outputForm();
 
 }
 }catch(Exception $e){
-    $controller->setErr($e->getMessage());
+	$controller->setErr($e->getMessage());
+	$controller->outputForm($_POST);
+
 }
 $controller->pageList();
 $controller->render();

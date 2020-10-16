@@ -18,7 +18,7 @@
 	</head>
 	<body>
 		<div class = "container-fluid " style = "padding-right: 0px; padding-left: 0px;">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 				<a class="navbar-brand" href="/">Админ
 					<!-- <img src="/img/logo.png" class="" alt="logo" width="175" height="auto" > -->
 				</a>
@@ -27,8 +27,11 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="/">Домашняя<span class="sr-only"></span></a>
+						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="/">Домашняя страница<span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="/admin/admin.php">Админ<span class="sr-only">(current)</span></a>
 						</li>
 					
 						<!-- <li class="nav-item">
@@ -40,13 +43,12 @@
 							Добавление
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/admin/admin.php">Главная админ</a>
-								<a class="dropdown-item" href="/admin/adminArticle.php">Добавление блока 1</a>
-								<a class="dropdown-item" href="/admin/allHotels.php">Добавление блока 2</a>
-								<a class="dropdown-item" href="/admin/adminConfig.php">Конфигурации</a>
-								<a class="dropdown-item" href="/admin/feedBacks.php">Отзыв</a>
-								<a class="dropdown-item" href="/admin/prevew.php">Превью</a>
 								<a class="dropdown-item" href="/admin/freeText.php">Новая страница</a>
+								<a class="dropdown-item" href="/admin/adminConfig.php">Конфигурации</a>
+								<a class="dropdown-item" href="/admin/adminArticle.php">Блок 1</a>
+								<a class="dropdown-item" href="/admin/allHotels.php">Блок 2</a>
+								<a class="dropdown-item" href="/admin/feedBacks.php">Отзыв</a>
+								<!-- <a class="dropdown-item" href="/admin/prevew.php">Превью</a> -->
 								<div class="dropdown-divider">
 								</div>
 								
@@ -73,11 +75,10 @@
 		</div>
 
 <div class = "row">
-		<div class = "col-12 col-sm-12 col-md-12 col-lg-12">
+
+		<div class = "col-12 col-sm-9 col-md-9 col-lg-9">
 			<?=$err?>
 			<?=$content?>
-			<?=$articles?>
-			<?=$fb?>
 			<?=$listForDel?>
 		</div>
 </div>

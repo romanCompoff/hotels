@@ -7,12 +7,12 @@ class AdminModel Extends ActiveRecordParentModel
 {
 	private $pageName;
 	
-	public function getPageName(): int
+	public function getPageName()
     {
         return $this->pageName;
     }    
     
-    public function setPageName($id)
+    public function setPageName($pageName)
     {
         $this->pageName = $pageName;
 	}

@@ -31,6 +31,24 @@ class IndexController Extends ActiveRecordParentController
     
     }
 
+    public function indexRouter(array $uri)
+    {
+        if($uri[0] ?? $uri[0] != ""){
+            if(substr($uri[0], -5) == '.html'){
+                $pageName = substr_replace($uri[0], '', -5);
+            }else{
+                $pageName = $uri[0];
+            }
+            if($uri[1]){
+                $this->err404();
+            }
+            $this->pageRout($pageName);
+        }else{
+            $pageName = "index";
+        }
+        return $pageName;
+    }
+
     public function menuList()
     {
         $res = $this->getAll('editordata', 'menuName, pageName');

@@ -77,6 +77,11 @@ abstract class ActiveRecordParentModel
         $validator->setRules(static::$schema);
     }
 
+    public static function getRulesForValidator()
+    {
+        return static::$schema;
+    }
+
     public static function getByPageName(string $pageName)
     {
         $db = DB::getConnect();

@@ -15,26 +15,13 @@ $uriParts = explode("/", $uri);
 unset($uriParts[0]);
 $uriParts = array_values($uriParts);
 
-if($uriParts[0] ?? $uriParts[0] != ""){
-    $pageName = substr_replace($uriParts[0], '', -5);
-    if($uriParts[1]){
-        $controller->err404();
-    }
-    $controller->pageRout($pageName);
-}else{
-    $pageName = "index";
-}
-
 // $request = new Request($_GET, $_POST, $_SERVER, $_COOKIE, $_FILES, $_SESSION);
 
-// $controller = new BaseController($request);
-
-
+$pageName = $controller->indexRouter($uriParts);
 $controller->renderAllBlocks('feedbacks');
 $controller->renderAllBlocks('articles', $pageName);
 $controller->renderAllBlocks('allhotels', $pageName) ;
 $controller->menuList();
-
 $controller->render();
 // $ads = new GAdsController;
 // $ads->addKeyLoger();

@@ -18,7 +18,7 @@ abstract class ActiveRecordParentController
     protected $banner = "/img/banner.jpg";
     protected $allhotels;
 
-    protected function getAll($dataForm, $col = "*", $where = "")
+    public function getAll($dataForm, $col = "*", $where = "")
     {
         $res = ActiveRecordParentModel::getAll($dataForm, $col, $where);
         return $res;

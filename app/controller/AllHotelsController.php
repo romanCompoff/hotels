@@ -32,7 +32,7 @@ class AllHotelsController Extends AdminController
     public function delAllHotels($id)
     {
         $res = AllHotelsModel::delById($id);
-        $this->RDir($_SERVER['DOCUMENT_ROOT'] . '/img/img-allHotels/' . $id);
+        $this->RDir($_SERVER['DOCUMENT_ROOT'] . '/img/img-allhotels/' . $id);
     }
 
 }
